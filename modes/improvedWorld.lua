@@ -1,0 +1,93 @@
+---@type Plugin
+local mode = ...
+mode.name = 'Improved World'
+mode.author = 'Koto'
+
+mode.defaultConfig = {
+    spawnPositions = { Vector(2452, 37, 1016), Vector(1361, 37, 1016), Vector(1363, 37, 2054) },
+	trainCrimLimit = 100
+}
+
+mode:addEnableHandler(function (isReload)
+	server.type = TYPE_WORLD
+	server.name = "Kotus | Improved World | Beer" --Max length 31
+	server.maxPlayers = 50
+	server.worldStartCash = 5000
+	server.worldMinCash = 100
+	server.worldRespawnTeam = false
+	server.worldTraffic = 200
+
+	server.worldCrimeNoSpawn = 300
+	
+	server.worldCrimeCivCiv = 1
+	server.worldCrimeCivTeam = 2
+	server.worldCrimeTeamCiv = 1
+	server.worldCrimeTeamTeam = 0
+	server.worldCrimeTeamTeamInBase = 0
+
+	server.adminPassword = "look mayor i got drip#$3"
+
+	if not isReload then
+		server:reset()
+	end
+end
+)
+
+
+
+---@return integer
+local function randSpawn()
+    return mode.defaultConfig.spawnPositions[math.random(3)]
+end
+
+---@param Player ply
+local function spawn(ply)
+	if ply.criminalRating < mode.defaultConfig.trainCrimLimit or ply.isAdmin then
+		if humans.create(randSpawn(), orientations.n, ply) then
+			ply:update()
+		end
+	elseif humans.create(Vector(2943, 26, 1540), orientations.n, ply) then
+		ply:update()
+	end
+end
+
+mode:addHook(
+    'PlayerActions',
+    ---@param Player ply
+    function (ply)
+        if ply.numActions ~= ply.lastNumActions then
+			local action = ply:getAction(ply.lastNumActions)
+
+			if action.type == 0 and action.a == 1 and action.b == 1 then
+				hook.run("ClickedEnterCity", ply)
+				ply.lastNumActions = ply.numActions
+			end
+		end
+    end
+)
+
+
+mode:addHook(
+    'ClickedEnterCity',
+    ---@param Player ply
+    function (ply)
+        spawn(ply)
+		hook.run("PostClickedEnterCity", ply)
+    end
+)
+
+
+local leftClick = bit32.lshift(1, "0")
+
+mode:addHook(
+    "Physics",
+    function ()
+        for _, hum in ipairs(humans.getAll()) do
+            click = bit32.band(hum.inputFlags, leftClick)
+            
+            if click > 0 then
+                hook.run("LeftClick", hum)
+            end
+        end
+    end
+)
