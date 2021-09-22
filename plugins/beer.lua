@@ -14,8 +14,10 @@ local leftClick = bit32.lshift(1, "0")
 
 
 ---@param Player ply
+---@return Item beer
 local function spawnBeer(ply)
-    items.create(bottle, ply.human.pos, orientations.n)
+    local beer = items.create(bottle, ply.human.pos, orientations.n)
+    return beer
 end
 
 
@@ -87,7 +89,8 @@ plugin.commands["/beer"] = {
         if not ply.human then
             ply:sendMessage("You need to first spawn to get beer.")
         else
-            spawnBeer(ply)
+            local beer = spawnBeer(ply)
+            ply.human:mountItem(beer, 0)
         end
     end
 }

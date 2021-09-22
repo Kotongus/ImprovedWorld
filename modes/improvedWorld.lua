@@ -8,6 +8,9 @@ mode.defaultConfig = {
 	trainCrimLimit = 100
 }
 
+local spawningPlayers = {}
+
+
 mode:addEnableHandler(function (isReload)
 	server.type = TYPE_WORLD
 	server.name = "Kotus | Improved World | Beer" --Max length 31
@@ -67,6 +70,15 @@ mode:addHook(
 )
 
 
+mode:addHook(
+    "Logic",
+	function ()
+		for _, p in ipairs(players.getAll()) do
+			p.spawnTimer = 0
+		end
+	end
+
+)
 mode:addHook(
     'ClickedEnterCity',
     ---@param Player ply

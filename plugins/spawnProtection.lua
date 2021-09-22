@@ -7,7 +7,7 @@ plugin.description = 'Adds spawn protection.'
 
 plugin.defaultConfig = {
     --In seconds
-    protectionTime = 60
+    protectionTime = 120
 }
 
 
