@@ -8,7 +8,7 @@ local improvements = require 'plugins.improvements'
 
 plugin.defaultConfig = {
     joinMessage = "Sus",
-    paperMessage = "Welcome to Kotus Improved World, here is the list of improvements: \n"..improvements.getList(),
+    paperMessage = "discord.gg/mW8FNeyHhz\nWelcome to Kotus Improved World, here is the list of improvements: \n"..improvements.getList(),
     ticks = 2
 }
 
@@ -70,6 +70,8 @@ plugin:addHook(
     "PlayerSpawnedIn",
     ---@param Player ply
     function (ply)
+        ply:sendMessage("JOIN OUR DISCORD")
+        ply:sendMessage("discord.gg/mW8FNeyHhz")
         givePaper(ply.human)
     end
 )

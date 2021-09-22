@@ -37,6 +37,15 @@ end
 )
 
 
+mode.commands["/discord"] = {
+	info = "Provides you with our discord link.",
+	---@param Player ply
+	function (ply, _, _)
+		ply:sendMessage("discord.gg/mW8FNeyHhz")
+	end
+
+}
+
 
 ---@return integer
 local function randSpawn()
