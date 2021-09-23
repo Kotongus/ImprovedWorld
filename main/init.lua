@@ -6,6 +6,10 @@ require 'main.gameUtil'
 require 'main.plugins'
 require 'main.http'
 
+local tb = nil
+
+if tb and tb[1] then print("yes") else print("no") end
+
 local yaml = require 'main.yaml'
 
 local hasConfigLoadedOnce = false

@@ -20,11 +20,14 @@ local function getMemo ()
     local board = db:query("SELECT * FROM drunkLeaderboard ORDER BY record DESC")
     local phrase = plugin.defaultConfig.paperMessage.."\n\nType /beer to get some beer, here are people who drunk the most:"
 
+    if board then
+
         for i, v in ipairs(board) do
             if i > 10 then break end
             local name = accounts.getByPhone(v[1]).name
             phrase = phrase.."\n"..i..". "..name..":  "..v[2].." beers"
         end
+    end
 
     return phrase
 end

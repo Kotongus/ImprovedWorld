@@ -27,14 +27,13 @@ plugin:addHook(
 
         local userExists = db:query("SELECT * FROM drunkLeaderboard WHERE playerID = "..plyID)
 
-        if not userExists[1] then
+        if not userExists or not userExists[1] then
             db:query("INSERT INTO drunkLeaderboard VALUES ("..plyID..", 1)")
         end
 
-
         local beat = db:query("SELECT playerID FROM drunkLeaderboard WHERE record < "..drunkLevel.." AND playerID = "..plyID)
 
-        if not beat[1] then return end
+        if not beat or not beat[1] then return end
         db:query("UPDATE drunkLeaderboard SET record = "..drunkLevel.." WHERE playerID = "..plyID)
         
     end
@@ -46,7 +45,7 @@ plugin.commands["/record"] = {
     call = function (ply, _, _)
         local record = db:query("SELECT record FROM drunkLeaderboard WHERE playerID = "..ply.phoneNumber)
 
-        if not record[1] then
+        if not record or not record[1] then
             ply:sendMessage("You haven't drinked anything yet.")
             return
         end
@@ -64,6 +63,10 @@ plugin.commands["/leaderboard"] = {
     ---@return table board
     call = function (ply, _, _)
         local board = db:query("SELECT * FROM drunkLeaderboard ORDER BY record DESC")
+        if board then
+            ply:sendMessage("There are no drinking records yet.")
+            return
+        end
 
         for i, v in ipairs(board) do
             if i > 10 then break end
