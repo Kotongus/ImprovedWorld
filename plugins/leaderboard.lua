@@ -10,7 +10,7 @@ plugin:addEnableHandler(
     function (_)
         local leaderboard = db:query('SELECT * FROM drunkLeaderboard')
 
-        if leaderboard == nil then
+        if not leaderboard then
             db:query('CREATE TABLE drunkLeaderboard (playerID int NOT NULL UNIQUE, record int)')
         end        
     end
@@ -63,7 +63,7 @@ plugin.commands["/leaderboard"] = {
     ---@return table board
     call = function (ply, _, _)
         local board = db:query("SELECT * FROM drunkLeaderboard ORDER BY record DESC")
-        if board then
+        if not board then
             ply:sendMessage("There are no drinking records yet.")
             return
         end
