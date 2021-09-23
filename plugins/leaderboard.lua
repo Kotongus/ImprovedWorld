@@ -10,7 +10,7 @@ plugin:addEnableHandler(
     function (_)
         local leaderboard = db:query('SELECT * FROM drunkLeaderboard')
 
-        if not leaderboard then
+        if not leaderboard or not leaderboard[1] then
             db:query('CREATE TABLE drunkLeaderboard (playerID int NOT NULL UNIQUE, record int)')
         end        
     end
