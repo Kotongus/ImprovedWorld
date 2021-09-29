@@ -7,7 +7,7 @@ plugin.description = 'Adds spawn protection.'
 
 plugin.defaultConfig = {
     --In seconds
-    protectionTime = 120
+    protectionTime = 60
 }
 
 
@@ -50,6 +50,8 @@ end
 
 ---@param Human human
 function heal (human)
+    human.isBleeding = false
+
     human.health = 100
 	human.bloodLevel = 100
 	human.chestHP = 100
@@ -66,7 +68,7 @@ function addSpawnProtection (ply)
     local startTime = os.time()
     ply.data["protectionStart"] = startTime
     ply.human.isImmortal = true
-    ply:sendMessage("You got spawn protection for " .. plugin.defaultConfig.protectionTime .. " seconds.")
+    --ply:sendMessage("You got spawn protection for " .. plugin.defaultConfig.protectionTime .. " seconds.")
 end
 
 
@@ -122,6 +124,17 @@ plugin:addHook(
         end
     end
 )
+
+
+plugin:addHook(
+    "HumanGrabbing",
+    ---@param Human grabbingHuman
+    function (grabbingHuman, _, _, _)
+        if not grabbingHuman.player.data["protectionStart"] then return end
+        removeSpawnProtection(grabbingHuman.player, true)
+    end
+)
+
 
 plugin:addHook(
     "ClickedEnterCity",

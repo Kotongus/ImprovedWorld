@@ -1,19 +1,21 @@
-local improvements = { _version = "1" }
+local improvements = { _version = "2" }
 
 improvements.list = [[
 - Beer (/beer)
-- Less criminal rating
+- Helis in shops
+- Grabbing (thanks to olv)
 - No waiting for respawn
 - You spawn directly at the shops
 - Uzi costs $150 and has less bullet speed
+- Less criminal rating
 - Improved spawn protection
-- Bullets hit trains
 
 
 [Coming soon]
-- Helis in shops
-- New kind of missions/events
-- Better AI
+
+- Skyscraper corporations
+- Bars
+- Teasers
 ]]
 
 function improvements.getList()

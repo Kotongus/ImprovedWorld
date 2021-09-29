@@ -5,7 +5,7 @@ plugin.author = 'Koto'
 plugin.description = 'Adds beer to sub rosa yaaaay'
 
 plugin.defaultConfig = {
-    defaultDrunkCooldown = 5000,
+    defaultDrunkCooldown = 3500,
     intensitivity = 4
 }
 

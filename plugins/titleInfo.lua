@@ -56,6 +56,16 @@ end
 plugin:addHook(
 	'Logic',
 	function ()
+		--Its Koto's code if you want to be nice then move it to a separate plugin :*
+		if recentFiveSec < 50 then
+			for _, human in ipairs(humans.getAll()) do
+				if not human.isAlive then
+					human:remove()
+				end
+			end
+		end
+
+
 		sampleCounter = sampleCounter + 1
 		if sampleCounter == sampleInterval then
 			sampleCounter = 0
@@ -83,6 +93,7 @@ plugin:addHook(
 				hook.run('TPSDipped', recentFiveSec)
 			end
 		end
+
 	end
 )
 

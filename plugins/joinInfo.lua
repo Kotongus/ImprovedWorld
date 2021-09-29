@@ -7,7 +7,6 @@ plugin.description = "Adds join messages to inform players about improvements."
 local improvements = require 'plugins.improvements'
 
 plugin.defaultConfig = {
-    joinMessage = "Sus",
     paperMessage = "discord.gg/mW8FNeyHhz\nWelcome to Kotus Improved World, here is the list of improvements: \n"..improvements.getList(),
     ticks = 2
 }

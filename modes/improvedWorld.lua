@@ -47,6 +47,14 @@ mode.commands["/discord"] = {
 }
 
 
+-- mode.commands["/info"] = {
+-- 	info = "Gives you a list of all improvements.",
+-- 	---@param Player ply
+-- 	function (ply, _, _)
+		
+-- 	end
+-- }
+
 ---@return integer
 local function randSpawn()
     return mode.defaultConfig.spawnPositions[math.random(3)]
