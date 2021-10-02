@@ -1,70 +1,43 @@
-local dM=...dM.name='Grab Fix'dM.author='olv'
-dM.description='Adds back grabbing.'
-local function U(mvi,g4KV)
-return
-
-g4KV==6 and
-(not mvi:getInventorySlot(1).primaryItem or
-mvi:getInventorySlot(0).primaryItem and
-(
-mvi:getInventorySlot(0).primaryItem.type.numHands>1 or
-mvi:getInventorySlot(0).primaryItem.type.index==36))or
-g4KV==9 and not mvi:getInventorySlot(0).primaryItem end;local _u={[6]="leftHandGrab",[9]="rightHandGrab"}
-local function aLgiy(dT7iYDf4,L,WRH9,cJoBcud)
-local e=dT7iYDf4:getRigidBody(L)
-return
-
-
-
-
-dT7iYDf4.isAlive and dT7iYDf4.health>49 and U(dT7iYDf4,L)and dT7iYDf4.stamina>=10 and
-e.data.ADKfSK and not dT7iYDf4.vehicle and WRH9 and
-cJoBcud and
-e.pos:dist(WRH9:getRigidBody(cJoBcud).pos)<0.4 and not WRH9.vehicle end
-dM:addHook("Logic",function()
-for B6zKxgVs,O3_X in ipairs(humans.getAll())do
-for DVs8kf2w=0,15 do
-local vms5=O3_X:getRigidBody(DVs8kf2w)vms5.data.human=O3_X;vms5.data.index=DVs8kf2w end
-O3_X.data.ZAjsDM=O3_X.data.ZAjsDM or 0
-if O3_X.data.ZAjsDM>0 then O3_X.data.ZAjsDM=
-O3_X.data.ZAjsDM-1 elseif
-bit32.band(O3_X.inputFlags,2048)==2048 then O3_X.data.ZAjsDM=8;local M7=0
-for v3,ihKb in pairs(_u)do
-local JGSK=O3_X.data[ihKb]if
-
-O3_X:getRigidBody(v3).data.AWfmkaw and JGSK and JGSK.health>49 and JGSK.isAlive then M7=M7+1 end end;O3_X.stamina=math.max(O3_X.stamina-M7,0)end
-for rA5U,Uc06 in pairs(_u)do local lcBL=O3_X:getRigidBody(rA5U)
-local DHPxI=lcBL.data.AWfmkaw
-local dx,RRuSHnxf=O3_X.data[Uc06],O3_X.data[Uc06 ..'Index']
-if not aLgiy(O3_X,rA5U,dx,RRuSHnxf)and DHPxI then O3_X.data[Uc06]=
-nil;O3_X.data[Uc06 ..'Index']=nil
-DHPxI.despawnTime=0;lcBL.data.AWfmkaw=nil end end end end)
-dM:addHook("CollideBodies",function(mcYOuT,Rr)
+local rhVu=...rhVu.name="Helicopter Fix"rhVu.author="olv"
+rhVu.description="Fixes the helicopter model."
+local function ngzOjWHO(dM)
+assert(dM,dM.type.index==12,"No valid vehicle provided")
+local U=vehicles.create(vehicleTypes[14],dM.pos:clone(),dM.rot:clone(),dM.color)U.isLocked=true;U.controllableState=0;U.rigidBody.mass=1000
+U.type=vehicleTypes[0]U:updateType()for _u=0,3 do
+U:updateDestruction(1,_u,Vector(),Vector())end;U.data.GAMNgm=dM
+dM.data.AGMSsA=U;dM.rigidBody.data.vehicle=dM
+U.rigidBody.data.vehicle=U;return U end
+rhVu:addHook("Logic",function()
+for aLgiy,mvi in ipairs(humans.getAll())do local g4KV=mvi.vehicle
+if g4KV and
+g4KV.type.index==12 and g4KV.data.AGMSsA and
+g4KV.health>0 then g4KV.data.FasmfS=
+g4KV.data.FasmfS or 0
 if
-not mcYOuT or not Rr or not mcYOuT.isActive or not Rr.isActive then return end;local scRP0,AI0R2TQ6=mcYOuT.data.human,mcYOuT.data.index
-local yA,XmVolesU=Rr.data.human,Rr.data.index
-local eZ0l3ch={{mcYOuT,Rr,scRP0,AI0R2TQ6,yA,XmVolesU},{Rr,mcYOuT,yA,XmVolesU,scRP0,AI0R2TQ6}}
-for W_63_9,h9dyA_4T in ipairs(eZ0l3ch)do local oh,DZXGTh,Su9Koz,Uk7e,KwQCk_G,ptZa=table.unpack(h9dyA_4T)
-if
-not
-(
-not oh or not
-DZXGTh or not Su9Koz or not Uk7e or
-not KwQCk_G or not ptZa or not
-_u[Uk7e]or oh.data.AWfmkaw or not aLgiy(Su9Koz,Uk7e,KwQCk_G,ptZa))then local PEqsd=_u[Uk7e]
-if
-not hook.run("HumanGrabbing",Su9Koz,Uk7e,KwQCk_G,ptZa)then Su9Koz.data[PEqsd]=KwQCk_G
-Su9Koz.data[PEqsd..'Index']=ptZa
-oh.data.AWfmkaw=oh:bondTo(DZXGTh,Vector(),Vector())
-hook.run("PostHumanGrabbing",Su9Koz,Uk7e,KwQCk_G,ptZa)end end end end)
-dM:addHook("HumanLimbInverseKinematics",function(iSj,iXxD6s,oiY,FsYIVlkf)
-if
-iXxD6s==2 and iSj.isAlive and iSj.health>49 then
-local HLXS0Q_=bit32.band(iSj.inputFlags,2048)==2048;local Kw=oiY+2;local nvaIsNv7=iSj:getRigidBody(Kw)
-local vDnoL55=Vector(oiY==7 and-0.1 or 0.1,0,
-bit32.band(iSj.inputFlags,2)==2 and-0.35 or-0.57)if iSj.viewPitch>0 then
-vDnoL55.z=vDnoL55.z-iSj.viewPitch*0.0854 end;local xlAK=HLXS0Q_ and U(iSj,Kw)
-if xlAK and not
-iSj.data.noGrabIK then FsYIVlkf:set(vDnoL55)end;nvaIsNv7.data.ADKfSK=xlAK end end)
-dM.commands["/grabfix"]={info="Get grab information.",usage="/grabfix",call=function(zr1y)
-zr1y:sendMessage("olv's Grab Fix | 09/28/21")end}
+g4KV.data.FasmfS<1 and mvi.vehicleSeat==0 then
+g4KV.data.FasmfS=240;events.createSound(42,g4KV.pos,0.5,1)end end end
+for dT7iYDf4,L in ipairs(vehicles.getAll())do
+if L.isActive and L.type.index==12 then if not
+L.data.AGMSsA then ngzOjWHO(L)end;L.data.FasmfS=
+L.data.FasmfS or 0;if
+L.data.FasmfS>0 then
+L.data.FasmfS=L.data.FasmfS-1 end
+local WRH9=L.data.AGMSsA
+if WRH9 and WRH9.isActive then
+WRH9.pos,WRH9.rigidBody.pos=L.pos:clone()+ (-
+L.rot:getRight()*0.3),
+L.rigidBody.pos:clone()+
+(-L.rigidBody.rot:getRight()*0.3)
+WRH9.vel,WRH9.rigidBody.vel=L.vel:clone(),L.rigidBody.vel:clone()
+WRH9.rot,WRH9.rigidBody.rot=L.rot:clone(),L.rigidBody.rot:clone()
+WRH9.rigidBody.rotVel=L.rigidBody.rotVel:clone()L.color=WRH9.color;L.health=WRH9.health else L:remove()end end end end)
+rhVu:addHook("CollideBodies",function(cJoBcud,e,B6zKxgVs,O3_X,DVs8kf2w,vms5,M7,v3,ihKb)if not cJoBcud or not e then return end
+local JGSK,rA5U=cJoBcud.data.vehicle,e.data.vehicle
+local Uc06={{cJoBcud,JGSK,B6zKxgVs},{e,rA5U,O3_X}}
+for lcBL,DHPxI in ipairs(Uc06)do local dx,RRuSHnxf,mcYOuT=table.unpack(DHPxI)if
+not dx or not RRuSHnxf or not RRuSHnxf.data.GAMNgm then
+return end
+RRuSHnxf.data.GAMNgm.rigidBody:collideLevel(
+mcYOuT or Vector(),DVs8kf2w or Vector(),vms5 or 0.005,M7 or 0,v3 or 0,ihKb or 1)return hook.override end end)
+rhVu.commands["/helifix"]={info="Get heli fix information.",usage="/helifix",call=function(Rr)
+Rr:sendMessage("olv's Heli Fix | 09/28/21")end}

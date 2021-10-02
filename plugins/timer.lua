@@ -4,7 +4,7 @@ plugin.name = 'Timer'
 plugin.author = 'Koto'
 plugin.description = 'Adds timers that help you with async functions.'
 
-local timers = {}
+local timers = { _version = "1" }
 timers.tickDelays = {}
 timers.secondDelays = {}
 timers.secondLoops = {}
@@ -63,3 +63,6 @@ plugin:addHook(
         end
     end
 )
+
+
+return timers
