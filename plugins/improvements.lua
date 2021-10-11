@@ -13,8 +13,6 @@ improvements.list = [[
 
 [Coming soon]
 
-- Skyscraper corporations
-- Bars
 - Teasers
 ]]
 

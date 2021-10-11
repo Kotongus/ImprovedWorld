@@ -3,6 +3,10 @@ local mode = ...
 mode.name = 'Improved World'
 mode.author = 'Koto'
 
+--Here type in your debug spawn and you will spawn there
+local debugSpawn = Vector(1663, 73, 1510)
+
+
 mode.defaultConfig = {
     spawnPositions = { Vector(2452, 37, 1016), Vector(1361, 37, 1016), Vector(1363, 37, 2054) },
 	trainCrimLimit = 100
@@ -13,14 +17,14 @@ local spawningPlayers = {}
 
 mode:addEnableHandler(function (isReload)
 	server.type = TYPE_WORLD
-	server.name = "  Kotus | Improved World | Beer" --Max length 31
+	server.name = "Kotus | Improved World | Beer" --Max length 31
 	server.maxPlayers = 50
 	server.worldStartCash = 5000
 	server.worldMinCash = 100
 	server.worldRespawnTeam = false
-	server.worldTraffic = 200
+	server.worldTraffic = 150
 
-	server.worldCrimeNoSpawn = 300
+	server.worldCrimeNoSpawn = 500
 	
 	server.worldCrimeCivCiv = 1
 	server.worldCrimeCivTeam = 2
@@ -62,6 +66,11 @@ end
 
 ---@param Player ply
 local function spawn(ply)
+	if debugSpawn then
+		humans.create(debugSpawn, orientations.n, ply)
+		return
+	end
+
 	if ply.criminalRating < mode.defaultConfig.trainCrimLimit or ply.isAdmin then
 		if humans.create(randSpawn(), orientations.n, ply) then
 			ply:update()

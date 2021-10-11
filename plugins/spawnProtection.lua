@@ -51,6 +51,7 @@ end
 ---@param Human human
 function heal (human)
     human.isBleeding = false
+    human.damage = 0
 
     human.health = 100
 	human.bloodLevel = 100
@@ -61,6 +62,15 @@ function heal (human)
 	human.leftLegHP = 100
 	human.rightLegHP = 100
 end
+
+plugin.commands["/heal"] = {
+    canCall = function (ply) return ply.isAdmin end,
+    ---@param Player ply
+    call = function (ply, _, _)
+        if not ply.human then return end
+        heal(ply.human)
+    end
+}
 
 
 ---@param Player ply

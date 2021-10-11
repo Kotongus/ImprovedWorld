@@ -6,7 +6,8 @@ plugin.description = 'Adds beer to sub rosa yaaaay'
 
 plugin.defaultConfig = {
     defaultDrunkCooldown = 3500,
-    intensitivity = 4
+    intensitivity = 4,
+    beerPrice = 50
 }
 
 local bottle = itemTypes.getByName("Bottle")
@@ -17,6 +18,7 @@ local leftClick = bit32.lshift(1, "0")
 ---@return Item beer
 local function spawnBeer(ply)
     local beer = items.create(bottle, ply.human.pos, orientations.n)
+    beer.data.customType = "Beer"
     return beer
 end
 
@@ -28,7 +30,7 @@ local function createBeerStats(human)
 end
 
 
----@param Human hum
+---@param Human human
 local function handleBeer(human)
     
     local drunk = human.data["drunkLevel"]
@@ -54,9 +56,8 @@ local function drinkBeer(human, beer)
 
     human.data["drunkLevel"] = human.data["drunkLevel"] + 1
     human.data["drunkCooldown"] = plugin.defaultConfig.defaultDrunkCooldown
+    hook.run("BeerDrinked", human, beer)
     beer:remove()
-
-    hook.run("BeerDrinked", human)
 end
 
 
@@ -70,7 +71,7 @@ plugin:addHook(
             
             if click > 0 then
                 local item = hum:getInventorySlot(0).primaryItem
-                if item ~= nil and item.type == bottle then
+                if item ~= nil and item.data.customType == "Beer" then
                     drinkBeer(hum, item)
                 end
             end
@@ -80,24 +81,31 @@ plugin:addHook(
 
 
 plugin.commands["/beer"] = {
-    info = 'Get some beer to get drunk.',
+    info = 'Buy beer for $'..plugin.defaultConfig.beerPrice..'.',
 	usage = '/beer',
 
 	---@param ply Player
 	---@param args string[]
 	call = function (ply, _, args)
+        local price = plugin.defaultConfig.beerPrice
+
         if not ply.human then
-            ply:sendMessage("You need to first spawn to get beer.")
-        else
+            ply:sendMessage("You need to first spawn to buy beer.")
+        elseif ply.money >= price then
+            ply.money = ply.money - price
+            ply:updateFinance()
+
             local beer = spawnBeer(ply)
             ply.human:mountItem(beer, 0)
+        elseif ply.money < price then
+            ply:sendMessage("You don't have enought money for beer...")
         end
     end
 }
 
+
 plugin.commands["/drunk"] = {
     info = 'Check your drunk level.',
-	usage = '/drunkLevel',
 
 	---@param ply Player
 	---@param args string[]

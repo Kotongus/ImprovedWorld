@@ -1,8 +1,8 @@
 ---@type Plugin
 local plugin = ...
-plugin.name = 'Fixed Uzi'
-plugin.author = 'pvbcl'
-plugin.description = 'Fixes uzi.'
+plugin.name = 'Weapon Tweaks'
+plugin.author = 'pvbcl & Koto'
+plugin.description = 'Tweaks weapons.'
 
 plugin.defaultConfig = {
     uziItemTypeName = "Uzi"
@@ -18,6 +18,10 @@ plugin:addEnableHandler(function (isReload)
     magazineItemType.magazineAmmo = 25
 
 
+    local pistolMag = itemTypes.getByName("9mm Magazine")
+    pistolMag.magazineAmmo = 15
+
+    
     --Koto's fingergun fix
     local invisiGun = itemTypes.getByName("Auto 5")
     invisiGun.bulletVelocity = 8 -- Equals to default 9mm bullet velocity
