@@ -286,7 +286,7 @@ plugin:addHook(
     ---@param string character
     ---@param integer charInt
     ---@param string game
-    function (pc, character, charInt, game, ply)
+    function (pc, character, charInt, game)
         if game ~= plugin.gameName then return end
 
         if pc.data.game.state == STATE_BET then
@@ -300,7 +300,7 @@ plugin:addHook(
                 pc.data.game.inputBet = pc.data.game.inputBet:sub(1, -2)
                 updateBet(pc)
                 cs:refreshScreenPixels(pc)
-            elseif charInt == 10 then
+            elseif charInt == 10 and (tonumber(pc.data.game.inputBet) or 0) <= cs:getPcUser(pc).money then
                 changeGameState(pc, STATE_PICK)
             end
 

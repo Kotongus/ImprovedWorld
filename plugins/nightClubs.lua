@@ -13,7 +13,7 @@ local tableCount = 8
 local beersOnTable = 3
 
 local computersPos = Vector(1641, 73.5, 1487)
-local computerCount = 4
+local computerCount = 3
 
 local hoesPos = Vector(1650, 73.5, 1502)
 local hoeCount = 8
@@ -116,10 +116,11 @@ local function getComputers()
     local pcs = {}
 
     for i, item in ipairs(items.getAll()) do
-        if item.data.customType == "Custom Computer" then
+        if item.data.gameName == "Roulette" then
             pcs[i] = item
         end
     end
+    print(next(pcs))
 
 
     return next(pcs)
@@ -192,11 +193,14 @@ plugin:addHook(
     "PlayerSpawnedIn",
     ---@param Player ply
     function (ply)
-        if getTables() and getComputers() then return end
-        spawnTables()
-        spawnBeerOnTables()
+        if not getTables() then
+            spawnTables()
+            spawnBeerOnTables()
+        end        
 
-        spawnComputers()
+        if not getComputers() then
+            spawnComputers()
+        end
 
         if not getHoes() then
             spawnHoes()

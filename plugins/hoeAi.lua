@@ -9,7 +9,7 @@ plugin.aiType = "Hurt Ai"
 local ouchPhrases = {"OUCH", "YOU IDIOT", "SOMEONE KILL HIM!", "Aaaaaaaaaaaaaaaaa"}
 local ouchProbability = 5
 
-local smallTalks = {"How is it goin' ya'll?", "You look so pretty", "Someone start shooting, I need some fun", "How much beer did you drinked today?", "this job sucks..."}
+local smallTalks = {"How is it goin' ya'll?", "You look so pretty", "Someone start shooting, I need some fun", "How much beer you drinked today?", "this job sucks..."}
 local talkProbability = 5
 
 plugin:addHook(

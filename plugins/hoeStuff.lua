@@ -38,7 +38,9 @@ function hoeStuff:spawnHoe(pos, type, ai)
     local hairClr = math.random(2)
 
     hoe.hairColor = self.hairColors[hairClr]
-    hoe.head = self.head
+    hoe.head = math.random(5) - 1
+    hoe.suitColor = 1
+    hoe.model = 1
     hoe.skinColor = 4
 end
 

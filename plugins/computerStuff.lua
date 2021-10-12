@@ -64,7 +64,7 @@ end
 ---@return Item
 function computerStuff:spawnPc (pos, rot, game)
     local pc = items.create(itemTypes.getByName("computer"), pos, rot)
-    pc.despawnTime = 9999999999999999
+    pc.despawnTime = 99999999999999
     pc.data.display = { x = self.screenX, y = self.screenY, frame = {} }
     pc.data.gameName = game
     pc.data.game = {}
@@ -100,9 +100,11 @@ function computerStuff:refreshScreenPixels (pc)
             end
         end
 
+        pc.computerCursor = -1
+        pc.computerTopLine = 0
+        pc.computerCurrentLine = 5
         pc:computerSetLine(iY - 1, lineText)
         pc:computerTransmitLine(iY - 1)
-        pc.computerCursor = -1
     end
 end
 

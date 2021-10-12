@@ -17,7 +17,7 @@ local spawningPlayers = {}
 
 mode:addEnableHandler(function (isReload)
 	server.type = TYPE_WORLD
-	server.name = "Kotus | Improved World | Bars" --Max length 31
+	server.name = "Kotus | Improved World" --Max length 31
 	server.maxPlayers = 50
 	server.worldStartCash = 5000
 	server.worldMinCash = 100
