@@ -28,20 +28,3 @@ plugin:addHook(
 		end
     end
 )
-
-
-
-plugin:addHook(
-    "TimeElapsed",
-    ---@param integer time
-    function (time)
-        if time == 1 then
-            for _, heli in ipairs(vehicles.getAll()) do
-                if heli.type.index == 12 and heli.pos.y < 10 then
-                    heli.isActive = false
-                end
-            end
-        end
-    end
-
-)
