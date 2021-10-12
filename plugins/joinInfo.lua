@@ -48,7 +48,9 @@ plugin:addHook(
     "PlayerSpawnedIn",
     ---@param Player ply
     function (ply)
-        ply:sendMessage("JOIN OUR DISCORD")
+        ply:sendMessage("You can find epic bar with casino and girls at the burger shop")
+        ply:sendMessage("________________________")
+        ply:sendMessage("ALSO JOIN OUR DISCORD")
         ply:sendMessage("discord.gg/mW8FNeyHhz")
         givePaper(ply.human)
     end
