@@ -1,7 +1,8 @@
 local improvements = { _version = "2" }
 
 improvements.list = [[
-- Beer (/beer)
+- Buy beer for $50 /beer
+- Bar with girls at the city centre
 - Helis in shops
 - Grabbing (thanks to olv)
 - No waiting for respawn
@@ -9,11 +10,7 @@ improvements.list = [[
 - Uzi costs $150 and has less bullet speed
 - Less criminal rating
 - Improved spawn protection
-
-
-[Coming soon]
-
-- Teasers
+- Anti lag system
 ]]
 
 function improvements.getList()

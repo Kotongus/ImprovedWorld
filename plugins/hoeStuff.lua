@@ -4,13 +4,31 @@ hoeStuff.hair = 2
 hoeStuff.hairColors = {1, 4}
 hoeStuff.head = 4
 
-hoeStuff.names = {}
+hoeStuff.names = {
+    "Zoey",
+    "Hannah",
+    "Kaylee",
+    "Sara",
+    "Alexa",
+    "Jane",
+    "Lana",
+    "Jessica",
+    "Emmy",
+    "Louise",
+    "Vanessa",
+    "Jouliett",
+    "Violetta"
+}
 
 ---@param Vector pos
 ---@param string type
 ---@param string ai
 function hoeStuff:spawnHoe(pos, type, ai)
     local bot = players.createBot()
+    bot.name = self.names[math.random(table.getn(self.names))]
+
+    bot:update()
+
     local hoe = humans.create(pos, orientations.n, bot)
     hoe.data.customType = type
     hoe.data.customAI = ai or nil
@@ -18,13 +36,8 @@ function hoeStuff:spawnHoe(pos, type, ai)
     hoe.hair = self.hair
 
     local hairClr = math.random(2)
-    if hairClr == 1 then
-        hairClr = 1
-    else
-        hairClr = 4
-    end
 
-    hoe.hairColor = hairClr
+    hoe.hairColor = self.hairColors[hairClr]
     hoe.head = self.head
     hoe.skinColor = 4
 end

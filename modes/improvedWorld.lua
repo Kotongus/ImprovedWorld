@@ -4,7 +4,7 @@ mode.name = 'Improved World'
 mode.author = 'Koto'
 
 --Here type in your debug spawn and you will spawn there
-local debugSpawn = Vector(1663, 73, 1510)
+local debugSpawn = nil
 
 
 mode.defaultConfig = {
@@ -22,13 +22,13 @@ mode:addEnableHandler(function (isReload)
 	server.worldStartCash = 5000
 	server.worldMinCash = 100
 	server.worldRespawnTeam = false
-	server.worldTraffic = 150
+	server.worldTraffic = 100
 
 	server.worldCrimeNoSpawn = 500
 	
-	server.worldCrimeCivCiv = 1
-	server.worldCrimeCivTeam = 2
-	server.worldCrimeTeamCiv = 1
+	server.worldCrimeCivCiv = 50
+	server.worldCrimeCivTeam = 50
+	server.worldCrimeTeamCiv = 50
 	server.worldCrimeTeamTeam = 0
 	server.worldCrimeTeamTeamInBase = 0
 
@@ -50,14 +50,6 @@ mode.commands["/discord"] = {
 
 }
 
-
--- mode.commands["/info"] = {
--- 	info = "Gives you a list of all improvements.",
--- 	---@param Player ply
--- 	function (ply, _, _)
-		
--- 	end
--- }
 
 ---@return integer
 local function randSpawn()

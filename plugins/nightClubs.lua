@@ -75,6 +75,14 @@ local function spawnHoes ()
     end
 end
 
+local function garbageCollectHoes ()
+    for _, hoe in ipairs(humans.getAll()) do
+        if hoe.data.customType == "Bar Hoe" and not hoe.isAlive then
+            hoe:remove()
+        end
+    end
+end
+
 
 local function getTables()
     local tables = {}
@@ -171,6 +179,7 @@ plugin:addHook(
             end
 
             if not getHoes() then
+                garbageCollectHoes()
                 spawnHoes()
             end
             spawnBeerOnTables()

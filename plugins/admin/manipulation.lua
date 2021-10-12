@@ -88,31 +88,6 @@ plugin:addHook(
 	end
 )
 
-plugin.commands['/fly'] = {
-	info = 'Enter a noclip vehicle.',
-	canCall = function (ply) return ply.isAdmin end,
-	---@param ply Player
-	---@param man Human?
-	call = function (ply, man)
-		assert(man, 'Not spawned in')
-
-		if flyingMachines[man.index] then error('Already flying') end
-
-		local vcl = vehicles.create(vehicleTypes[13], man.pos, orientations.n, 0)
-		if vcl then
-			vcl.type = vehicleTypes[5]
-			vcl:updateType()
-			vcl.type = vehicleTypes[13]
-
-			flyingMachines[man.index] = vcl
-			vcl.rigidBody.isSettled = true
-			man.vehicle = vcl
-			man.vehicleSeat = 0
-		end
-
-		adminLog('%s is now flying', ply.name)
-	end
-}
 
 plugin.commands['/physics'] = {
 	info = 'Toggle physics.',
