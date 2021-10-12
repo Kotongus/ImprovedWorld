@@ -103,7 +103,7 @@ function computerStuff:refreshScreenPixels (pc)
         pc:computerSetLine(iY - 1, lineText)
         pc:computerTransmitLine(iY - 1)
 
-        computer.computerCursor = -1
+        pc.computerCursor = -1
     end
 end
 
