@@ -24,7 +24,7 @@ plugin:addHook(
         if computer.data.customType == "Custom Computer" then
             --computer.computerTopLine = 0
             --computer.computerCurrentLine = 5
-            computer.computerCursor = -1
+            --computer.computerCursor = -1
 
             computerStuff:refreshScreenPixels(computer)
             hook.run("ComputerGameLogic", computer, string.char(character), character, computer.data.gameName, getPcUser(computer))
