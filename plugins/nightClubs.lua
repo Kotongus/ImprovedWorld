@@ -13,7 +13,7 @@ local tableCount = 8
 local beersOnTable = 3
 
 local computersPos = Vector(1641, 73.5, 1487)
-local computerCount = 3
+local computerCount = 4
 
 local hoesPos = Vector(1650, 73.5, 1502)
 local hoeCount = 8
@@ -43,7 +43,7 @@ end
 
 local function spawnComputers ()
     for i = 1, computerCount do
-        cs:spawnPc(computersPos + Vector(0, 0, 4) * (i - 1), orientations.w, "Roulette")
+        local pc = cs:spawnPc(computersPos + Vector(0, 0, 4) * (i - 1), orientations.w, "Roulette")
 
 
         local t = items.create(tableType, (computersPos - Vector(0, 0.75, 0)) + Vector(0, 0, 4) * (i - 1), orientations.w)
@@ -52,6 +52,14 @@ local function spawnComputers ()
         t.isStatic = true
         t.hasPhysics = true
         t.despawnTime = 9999999999999999
+    end
+end
+
+local function removeComputers ()
+    for _, pc in ipairs(items.getAll()) do
+        if pc.data.gameName == "Roulette" then
+            pc:remove()
+        end
     end
 end
 
@@ -120,10 +128,9 @@ local function getComputers()
             pcs[i] = item
         end
     end
-    print(next(pcs))
 
 
-    return next(pcs)
+    return table.getn(pcs) == computerCount
 end
 
 
@@ -176,6 +183,7 @@ plugin:addHook(
             end
 
             if not getComputers() then
+                removeComputers()
                 spawnComputers()
             end
 

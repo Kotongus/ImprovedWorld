@@ -75,8 +75,7 @@ plugin.commands["/heal"] = {
 
 ---@param Player ply
 function addSpawnProtection (ply)
-    local startTime = os.time()
-    ply.data["protectionStart"] = startTime
+    ply.data.protection = plugin.defaultConfig.protectionTime
     ply.human.isImmortal = true
     --ply:sendMessage("You got spawn protection for " .. plugin.defaultConfig.protectionTime .. " seconds.")
 end
@@ -86,7 +85,7 @@ end
 ---@param boolean expited
 function removeSpawnProtection (ply, expired)
     if not ply then return end
-    ply.data["protectionStart"] = nil
+    ply.data.protection = nil
 
     if ply.human then
         ply.human.isImmortal = false
@@ -105,9 +104,9 @@ plugin:addHook(
     "Physics",
     function ()
         for _, ply in ipairs(players.getAll()) do
-            if not ply.human or not ply.data["protectionStart"] then return end
+            if not ply.human or not ply.data.protection then return end
 
-            if (ply.data["protectionStart"] + plugin.defaultConfig.protectionTime) <= os.time() then
+            if ply.data.protection <= 0 then
                 removeSpawnProtection(ply, true)
 
             elseif ply.human:getInventorySlot(0).primaryItem ~= nil or ply.human:getInventorySlot(1).primaryItem ~= nil then
@@ -126,7 +125,8 @@ plugin:addHook(
 
                 end
 
-                if result then removeSpawnProtection(ply, true) end
+                if result and ply.human then removeSpawnProtection(ply, true)
+                elseif result and not ply.human then removeSpawnProtection(ply, false) end
 
             elseif ply.human.vehicle then
                 removeSpawnProtection(ply, true)
@@ -140,16 +140,30 @@ plugin:addHook(
     "HumanGrabbing",
     ---@param Human grabbingHuman
     function (grabbingHuman, _, _, _)
-        if not grabbingHuman.player.data["protectionStart"] then return end
+        if not grabbingHuman.player.data.protection then return end
         removeSpawnProtection(grabbingHuman.player, true)
+    end
+)
+
+plugin:addHook(
+    "TimeElapsed",
+    ---@param integer time
+    function (time)
+        if time == 1 then
+            for _, ply in ipairs(players.getAll()) do
+                if ply.data.protection then
+                    ply.data.protection = ply.data.protection - 1
+                end
+            end
+        end
     end
 )
 
 
 plugin:addHook(
-    "ClickedEnterCity",
+    "PlayerSpawnedIn",
     ---@param Player ply
-    function(ply)
+    function (ply)
         removeSpawnProtection(ply, false)
         addSpawnProtection(ply)
     end
@@ -163,12 +177,12 @@ plugin.commands["/prot"] = {
 	---@param args string[]
     call = function (ply, _, args)
         if not ply.human then return end
-        if not ply.data["protectionStart"] then
+        if not ply.data.protection then
             ply:sendMessage("You are not spawn protected.")
             return
         end
 
-        local secondsLeft = plugin.defaultConfig.protectionTime - (os.time() - ply.data["protectionStart"])
+        local secondsLeft = ply.data.protection
         ply:sendMessage("You got " .. secondsLeft .. " seconds of spawn protection left.")
     end
 }
