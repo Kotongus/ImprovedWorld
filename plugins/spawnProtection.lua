@@ -140,7 +140,7 @@ plugin:addHook(
     "HumanDamage",
     ---@param Human human
     function (human)
-        if human.data.protection then
+        if human.player.data.protection then
             return hook.override
         end
     end
