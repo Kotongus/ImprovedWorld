@@ -28,8 +28,8 @@ plugin:addHook(
     "ItemDelete",
     ---@param Item pc
     function (pc)
-        if pc.customType == "Custom Computer" then
-            pc.despawnTime = 9999999999
+        if pc.data.customType == "Custom Computer" then
+            pc.despawnTime = 99999
             return hook.override
         end
     end

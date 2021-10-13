@@ -76,7 +76,6 @@ plugin.commands["/heal"] = {
 ---@param Player ply
 function addSpawnProtection (ply)
     ply.data.protection = plugin.defaultConfig.protectionTime * 60
-    ply.human.isImmortal = true
 end
 
 
@@ -86,9 +85,6 @@ function removeSpawnProtection (ply, expired)
     if not ply then return end
     ply.data.protection = nil
 
-    if ply.human then
-        ply.human.isImmortal = false
-    end
 
     if expired then
         ply:sendMessage("Your spawn protection expired.")
@@ -101,12 +97,12 @@ end
 plugin:addHook(
     "Physics",
     function ()
-        for _, ply in ipairs(players.getAll()) do
-            if not ply.human or not ply.data.protection then return end
+        for _, ply in ipairs(players.getNonBots()) do
+            if not ply.data.protection then return end
 
             ply.data.protection = ply.data.protection - 1
 
-            if ply.data.protection <= 0 then
+            if ply.data.protection < 0 then
                 removeSpawnProtection(ply, true)
 
             elseif ply.human:getInventorySlot(0).primaryItem ~= nil or ply.human:getInventorySlot(1).primaryItem ~= nil then
@@ -163,7 +159,6 @@ plugin:addHook(
     ---@param Player ply
     function (ply)
         if not ply.isBot and not ply.isZombie then
-            removeSpawnProtection(ply, false)
             addSpawnProtection(ply)
         end
     end

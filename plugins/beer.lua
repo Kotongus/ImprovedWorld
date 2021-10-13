@@ -6,7 +6,7 @@ plugin.description = 'Adds beer to sub rosa yaaaay'
 
 plugin.defaultConfig = {
     defaultDrunkCooldown = 3500,
-    intensitivity = 4,
+    intensitivity = 3,
     beerPrice = 50
 }
 
