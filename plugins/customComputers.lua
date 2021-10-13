@@ -16,12 +16,12 @@ plugin:addHook(
     ---@param integer character
     function (computer, character)
         if computer.data.customType == "Custom Computer" then
-
+            computer.computerTopLine = 0
+            computer.computerCurrentLine = 1
+            computer.computerCursor = -1
 
             cs:refreshScreenPixels(computer)
             hook.run("ComputerGameLogic", computer, string.char(character), character, computer.data.gameName, cs:getPcUser(computer))
-            computer.computerTopLine = 0
-            computer.computerCursor = -1
         end
     end
 )
