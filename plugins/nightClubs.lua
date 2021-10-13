@@ -136,7 +136,6 @@ local function getComputers()
         end
     end
 
-    print(table.getn(pcs))
     return table.getn(pcs) == computerCount
 end
 
