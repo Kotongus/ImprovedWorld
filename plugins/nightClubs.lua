@@ -62,10 +62,6 @@ local function spawnComputers ()
 
             local t = items.create(tableType, (computersPos - Vector(0, 0.75, 0)) + Vector(0, 0, 4) * (i - 1), orientations.w)
             t.data.customType = "Club Computer Table"
-
-            t.isStatic = true
-            t.hasPhysics = true
-            t.despawnTime = 9999999999999999
         end
     end
 end
