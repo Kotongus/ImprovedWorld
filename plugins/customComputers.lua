@@ -21,6 +21,7 @@ plugin:addHook(
             cs:refreshScreenPixels(computer)
             hook.run("ComputerGameLogic", computer, string.char(character), character, computer.data.gameName, cs:getPcUser(computer))
             computer.computerTopLine = 0
+            computer.computerCursor = -1
         end
     end
 )

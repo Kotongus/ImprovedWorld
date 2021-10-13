@@ -71,10 +71,10 @@ function computerStuff:spawnPc (pos, rot, game)
 
     pc.computerCursor = -1
 
-    for iY = 1, self.screenY do
-        pc.data.display.frame[iY] = {}
-        for iX = 1, self.screenX do
-            pc.data.display.frame[iY][iX] = {}
+    for iY = 0, self.screenY do
+        pc.data.display.frame[iY + 1] = {}
+        for iX = 0, self.screenX do
+            pc.data.display.frame[iY + 1][iX + 1] = {}
         end
     end
 
