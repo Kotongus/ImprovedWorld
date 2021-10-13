@@ -177,22 +177,34 @@ plugin:addHook(
 )
 
 plugin:addHook(
+    "PostResetGame",
+    ---@param integer reason
+    function (reason)
+        if reason ~= RESET_REASON_ENGINECALL then return end
+        if not getTables() then
+            spawnTables()
+        end
+
+        if not getComputers() then
+            spawnComputers()
+        end
+
+        if not getHoes() then
+            spawnHoes()
+        end
+    end
+)
+
+plugin:addHook(
     "TimeElapsed",
     ---@param integer time
     function (time)
-        if time == 150 then
-            if not getTables() then
-                spawnTables()
-            end
-
-            if not getComputers() then
-                spawnComputers()
-            end
-
+        if time == 300 then
             if not getHoes() then
                 garbageCollectHoes()
                 spawnHoes()
             end
+
             spawnBeerOnTables()
         end
     end

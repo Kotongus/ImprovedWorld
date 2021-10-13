@@ -7,9 +7,6 @@ plugin.description = 'Custom computers for gambling or other stuff.'
 local cs = require 'plugins.computerStuff'
 
 
-
-
-
 plugin:addHook(
     "PostItemComputerInput",
     ---@param Item computer
@@ -22,6 +19,18 @@ plugin:addHook(
 
             cs:refreshScreenPixels(computer)
             hook.run("ComputerGameLogic", computer, string.char(character), character, computer.data.gameName, cs:getPcUser(computer))
+        end
+    end
+)
+
+
+plugin:addHook(
+    "ItemDelete",
+    ---@param Item pc
+    function (pc)
+        if pc.customType == "Custom Computer" then
+            pc.despawnTime = 9999999999
+            return hook.override
         end
     end
 )
