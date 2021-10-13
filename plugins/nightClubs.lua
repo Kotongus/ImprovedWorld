@@ -180,7 +180,7 @@ plugin:addHook(
     "TimeElapsed",
     ---@param integer time
     function (time)
-        if time == 300 then
+        if time == 150 then
             if not getTables() then
                 spawnTables()
             end
