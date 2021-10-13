@@ -26,9 +26,9 @@ mode:addEnableHandler(function (isReload)
 
 	server.worldCrimeNoSpawn = 500
 	
-	server.worldCrimeCivCiv = 50
-	server.worldCrimeCivTeam = 50
-	server.worldCrimeTeamCiv = 50
+	server.worldCrimeCivCiv = 15
+	server.worldCrimeCivTeam = 15
+	server.worldCrimeTeamCiv = 10
 	server.worldCrimeTeamTeam = 0
 	server.worldCrimeTeamTeamInBase = 0
 
