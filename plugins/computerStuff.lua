@@ -91,17 +91,17 @@ function computerStuff:refreshScreenPixels (pc)
     local x = pc.data.display.x
     local y = pc.data.display.y
 
-    for iY = 1, y do
+    for iY = 0, y do
         local lineText = ""
 
-        for iX = 1, x do
-            if pc.data.display.frame[iY] and pc.data.display.frame[iY][iX] then
-                lineText = lineText .. (pc.data.display.frame[iY][iX].character or " ")
-                pc:computerSetColor(iY - 1, iX - 1, tonumber("0x".. (pc.data.display.frame[iY][iX].color or "11")))
+        for iX = 0, x do
+            if pc.data.display.frame[iY + 1] and pc.data.display.frame[iY + 1][iX + 1] then
+                lineText = lineText .. (pc.data.display.frame[iY + 1][iX + 1].character or " ")
+                pc:computerSetColor(iY, iX, tonumber("0x".. (pc.data.display.frame[iY + 1][iX + 1].color or "11")))
             end
         end
 
-        pc:computerSetLine(iY - 1, lineText)
+        pc:computerSetLine(iY, lineText)
         pc:computerTransmitLine(iY - 1)
     end
 end
