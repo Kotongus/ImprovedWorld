@@ -18,6 +18,18 @@ local computerCount = 4
 local hoesPos = Vector(1650, 73.5, 1502)
 local hoeCount = 8
 
+
+local function getPcByIndex (i)
+    for _, item in ipairs(items.getAll()) do
+        if item.data.computerIndex == i then
+            return true
+        end
+    end
+
+    return false
+end
+
+
 local function removeTables ()
     for _, item in ipairs(items.getAll()) do
         if item.data.customType == "Club Table" then
@@ -43,22 +55,17 @@ end
 
 local function spawnComputers ()
     for i = 1, computerCount do
-        local pc = cs:spawnPc(computersPos + Vector(0, 0, 4) * (i - 1), orientations.w, "Roulette")
+        if not getPcByIndex(i) then
+            local pc = cs:spawnPc(computersPos + Vector(0, 0, 4) * (i - 1), orientations.w, "Roulette")
+            pc.data.computerIndex = i
 
 
-        local t = items.create(tableType, (computersPos - Vector(0, 0.75, 0)) + Vector(0, 0, 4) * (i - 1), orientations.w)
-        t.data.customType = "Club Computer Table"
+            local t = items.create(tableType, (computersPos - Vector(0, 0.75, 0)) + Vector(0, 0, 4) * (i - 1), orientations.w)
+            t.data.customType = "Club Computer Table"
 
-        t.isStatic = true
-        t.hasPhysics = true
-        t.despawnTime = 9999999999999999
-    end
-end
-
-local function removeComputers ()
-    for _, pc in ipairs(items.getAll()) do
-        if pc.data.gameName == "Roulette" then
-            pc:remove()
+            t.isStatic = true
+            t.hasPhysics = true
+            t.despawnTime = 9999999999999999
         end
     end
 end
@@ -129,7 +136,7 @@ local function getComputers()
         end
     end
 
-
+    print(table.getn(pcs))
     return table.getn(pcs) == computerCount
 end
 
@@ -172,18 +179,12 @@ plugin:addHook(
     "TimeElapsed",
     ---@param integer time
     function (time)
-        if time == 5 then
-            if not getTables() or not getComputers then
-                
-            end
-        end
         if time == 300 then
             if not getTables() then
                 spawnTables()
             end
 
             if not getComputers() then
-                removeComputers()
                 spawnComputers()
             end
 

@@ -69,7 +69,7 @@ function computerStuff:spawnPc (pos, rot, game)
     pc.data.gameName = game
     pc.data.game = {}
 
-    pc.computerCursor = -1 --No cursor
+    pc.computerCursor = -1
 
     for iY = 1, self.screenY do
         pc.data.display.frame[iY] = {}
@@ -81,12 +81,13 @@ function computerStuff:spawnPc (pos, rot, game)
     pc.data.customType = "Custom Computer"
 
     hook.run("InitializeGame", pc, game)
+
+    return pc
 end
 
 
 ---@param Item pc
 function computerStuff:refreshScreenPixels (pc)
-
     local x = pc.data.display.x
     local y = pc.data.display.y
 
@@ -102,8 +103,6 @@ function computerStuff:refreshScreenPixels (pc)
 
         pc:computerSetLine(iY - 1, lineText)
         pc:computerTransmitLine(iY - 1)
-
-        pc.computerCursor = -1
     end
 end
 
