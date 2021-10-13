@@ -75,7 +75,7 @@ plugin.commands["/heal"] = {
 
 ---@param Player ply
 function addSpawnProtection (ply)
-    ply.data.protection = plugin.defaultConfig.protectionTime
+    ply.data.protection = plugin.defaultConfig.protectionTime * 60
     ply.human.isImmortal = true
 end
 
@@ -102,9 +102,9 @@ plugin:addHook(
     "Physics",
     function ()
         for _, ply in ipairs(players.getAll()) do
-            print(ply.human)
-            print(ply.data.protection)
             if not ply.human or not ply.data.protection then return end
+
+            ply.data.protection = ply.data.protection - 1
 
             if ply.data.protection <= 0 then
                 removeSpawnProtection(ply, true)
@@ -157,22 +157,6 @@ plugin:addHook(
     end
 )
 
-plugin:addHook(
-    "TimeElapsed",
-    ---@param integer time
-    function (time)
-        if time == 1 then
-            for _, ply in ipairs(players.getAll()) do
-                if ply.data.protection then
-                    print(ply.data.protection)
-                    ply.data.protection = ply.data.protection - 1
-                    print(ply.data.protection)
-                end
-            end
-        end
-    end
-)
-
 
 plugin:addHook(
     "PlayerSpawnedIn",
@@ -198,7 +182,7 @@ plugin.commands["/prot"] = {
             return
         end
 
-        local secondsLeft = ply.data.protection
+        local secondsLeft = math.ceil(ply.data.protection / 60)
         ply:sendMessage("You got " .. secondsLeft .. " seconds of spawn protection left.")
     end
 }
