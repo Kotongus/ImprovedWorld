@@ -137,6 +137,17 @@ plugin:addHook(
 
 
 plugin:addHook(
+    "HumanDamage",
+    ---@param Human human
+    function (human)
+        if human.data.protection then
+            return hook.override
+        end
+    end
+)
+
+
+plugin:addHook(
     "HumanGrabbing",
     ---@param Human grabbingHuman
     function (grabbingHuman, _, _, _)
@@ -164,8 +175,10 @@ plugin:addHook(
     "PlayerSpawnedIn",
     ---@param Player ply
     function (ply)
-        removeSpawnProtection(ply, false)
-        addSpawnProtection(ply)
+        if not ply.isBot and not ply.isZombie then
+            removeSpawnProtection(ply, false)
+            addSpawnProtection(ply)
+        end
     end
 )
 
