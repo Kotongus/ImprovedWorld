@@ -82,7 +82,7 @@ local function spawnBeer (pos)
     beer.data.customType = "Beer"
     beer.isStatic = true
     beer.data.staticPickable = true
-    beer.despawnTime = 9999999999999999
+    beer.despawnTime = 999999999999
     return beer
 end
 
@@ -146,11 +146,9 @@ local function spawnBeerOnTables ()
     for _, t in ipairs(items.getAll()) do
         if t.data.customType == "Club Table" then
             for i = 1, 3 do
-                for i = 1, 3 do
-                    if not t.data.beers[i] then
-                        local beer = spawnBeer(t.pos - Vector(-0.5, 0, 0) + Vector(-0.5 * (i - 1), 0.78, 0))
-                        t.data.beers[i] = beer
-                    end
+                if not t.data.beers[i] then
+                    local beer = spawnBeer(t.pos - Vector(-0.5, 0, 0) + Vector(-0.5 * (i - 1), 0.78, 0))
+                    t.data.beers[i] = beer
                 end
             end
         end
@@ -180,7 +178,6 @@ plugin:addHook(
     "PostResetGame",
     ---@param integer reason
     function (reason)
-        if reason ~= RESET_REASON_ENGINECALL then return end
         if not getTables() then
             spawnTables()
         end
@@ -192,6 +189,8 @@ plugin:addHook(
         if not getHoes() then
             spawnHoes()
         end
+
+        spawnBeerOnTables()
     end
 )
 
