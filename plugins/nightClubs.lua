@@ -90,7 +90,6 @@ local function spawnHoes ()
     for i = 1, hoeCount do
         hs:spawnHoe(hoesPos + Vector(2 * i, 0, math.random(10)), "Bar Hoe", "Hurt Ai")
     end
-    spawnBeerOnTables ()
 end
 
 local function garbageCollectHoes ()
@@ -175,25 +174,26 @@ plugin:addHook(
     end
 )
 
-plugin:addHook(
-    "PostResetGame",
-    ---@param integer reason
-    function (reason)
-        if not getTables() then
-            spawnTables()
-        end
+-- plugin:addHook(
+--     "PostResetGame",
+--     ---@param integer reason
+--     function (reason)
+--         if reason ~= RESET_REASON_ENGINECALL then return end
+--         if not getTables() then
+--             spawnTables()
+--         end
 
-        if not getComputers() then
-            spawnComputers()
-        end
+--         if not getComputers() then
+--             spawnComputers()
+--         end
 
-        if not getHoes() then
-            spawnHoes()
-        end
+--         if not getHoes() then
+--             spawnHoes()
+--         end
 
-        spawnBeerOnTables()
-    end
-)
+--         spawnBeerOnTables()
+--     end
+-- )
 
 plugin:addHook(
     "TimeElapsed",
