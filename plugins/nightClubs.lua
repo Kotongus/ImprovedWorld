@@ -43,7 +43,7 @@ local function spawnTables ()
     for i = 1, tableCount do
         local t = items.create(tableType, tablesPos + Vector(-4, 0, 0) * (i - 1), orientations.n)
         t.data.customType = "Club Table"
-        t.data.beers = {}
+        t.data.beers = {nil, nil, nil}
 
         t.isStatic = true
         t.hasPhysics = true
@@ -82,7 +82,7 @@ local function spawnBeer (pos)
     beer.data.customType = "Beer"
     beer.isStatic = true
     beer.data.staticPickable = true
-    beer.despawnTime = 999999999999
+    beer.despawnTime = 9999999999999
     return beer
 end
 
@@ -90,6 +90,7 @@ local function spawnHoes ()
     for i = 1, hoeCount do
         hs:spawnHoe(hoesPos + Vector(2 * i, 0, math.random(10)), "Bar Hoe", "Hurt Ai")
     end
+    spawnBeerOnTables ()
 end
 
 local function garbageCollectHoes ()
@@ -164,7 +165,7 @@ plugin:addHook(
     function (human, beer)
         for _, t in ipairs(items.getAll()) do
             if t.data.customType == "Club Table" then
-                for i = 1, 6 do
+                for i = 1, 3 do
                     if t.data.beers[i] and t.data.beers[i].index == beer.index then
                         t.data.beers[i] = nil
                     end
