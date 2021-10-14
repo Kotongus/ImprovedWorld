@@ -76,6 +76,7 @@ plugin.commands["/heal"] = {
 ---@param Player ply
 function addSpawnProtection (ply)
     ply.data.protection = plugin.defaultConfig.protectionTime * 60
+    ply.human.isImmortal = true
 end
 
 
@@ -84,6 +85,8 @@ end
 function removeSpawnProtection (ply, expired)
     if not ply then return end
     ply.data.protection = nil
+
+    if ply.human then
 
 
     if expired then
@@ -95,22 +98,22 @@ end
 
 
 plugin:addHook(
-    "Physics",
+    "Logic",
     function ()
         for _, ply in ipairs(players.getNonBots()) do
-            if not ply.data.protection then return end
+            if ply.data.protection then
+                ply.data.protection = ply.data.protection - 1
 
-            ply.data.protection = ply.data.protection - 1
+                if ply.data.protection < 0 then
+                    print("remove prot from "..ply.name)
+                    removeSpawnProtection(ply, true)
 
-            if ply.data.protection < 0 then
-                removeSpawnProtection(ply, true)
+                elseif ply.human:getInventorySlot(0).primaryItem ~= nil or ply.human:getInventorySlot(1).primaryItem ~= nil then
 
-            elseif ply.human:getInventorySlot(0).primaryItem ~= nil or ply.human:getInventorySlot(1).primaryItem ~= nil then
+                    local result = false
 
-                local result = false
-
-                local right = ply.human:getInventorySlot(0)
-                local left = ply.human:getInventorySlot(1)
+                    local right = ply.human:getInventorySlot(0)
+                    local left = ply.human:getInventorySlot(1)
 
 
                 if right.primaryItem ~= nil then
@@ -124,8 +127,9 @@ plugin:addHook(
                 if result and ply.human then removeSpawnProtection(ply, true)
                 elseif result and not ply.human then removeSpawnProtection(ply, false) end
 
-            elseif ply.human.vehicle then
-                removeSpawnProtection(ply, true)
+                elseif ply.human.vehicle then
+                    removeSpawnProtection(ply, true)
+                end
             end
         end
     end

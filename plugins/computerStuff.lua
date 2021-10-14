@@ -10,13 +10,13 @@ function computerStuff:setPcImage (pc, path, ascii)
     local image = Image.new()
     image:loadFromFile("./images/"..path..".png")
 
-    for iY = 0, pc.data.display.y do
-        for iX = 0, pc.data.display.x do
-            local r, g, b = image:getRGB(iX, iY)
+    for iY = 1, pc.data.display.y + 1 do
+        for iX = 1, pc.data.display.x + 1 do
+            local r, g, b = image:getRGB(iX - 1, iY - 1)
 
-            if pc.data.display.frame[iY + 1] and pc.data.display.frame[iY + 1][iX + 1] then
-                pc.data.display.frame[iY + 1][iX + 1].color = string.rep(self:rgbToCga(r, g, b), ascii or 2)
-                pc.data.display.frame[iY + 1][iX + 1].character = "O"
+            if pc.data.display.frame[iY] and pc.data.display.frame[iY][iX] then
+                pc.data.display.frame[iY][iX].color = string.rep(self:rgbToCga(r, g, b), ascii or 2)
+                pc.data.display.frame[iY][iX].character = "O"
             end
         end
     end
