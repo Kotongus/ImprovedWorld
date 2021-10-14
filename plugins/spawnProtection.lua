@@ -87,6 +87,8 @@ function removeSpawnProtection (ply, expired)
     ply.data.protection = nil
 
     if ply.human then
+        ply.human.isImmortal = false
+    end
 
 
     if expired then
