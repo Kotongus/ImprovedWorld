@@ -103,7 +103,7 @@ plugin:addHook(
     "Logic",
     function ()
         for _, ply in ipairs(players.getNonBots()) do
-            if ply.data.protection then
+            if ply.data.protection and ply.human and not ply.data.godMode then
                 ply.data.protection = ply.data.protection - 1
 
                 if ply.data.protection < 0 then
@@ -154,7 +154,7 @@ plugin:addHook(
     "HumanGrabbing",
     ---@param Human grabbingHuman
     function (grabbingHuman, _, _, _)
-        if not grabbingHuman.player.data.protection then return end
+        if not grabbingHuman.player.data.protection or grabbingHuman.player.data.godMode then return end
         removeSpawnProtection(grabbingHuman.player, true)
     end
 )
@@ -174,8 +174,8 @@ plugin:addHook(
 plugin.commands["/prot"] = {
     info = "See when your spawn protection ends.",
 
-    ---@param ply Player
-	---@param args string[]
+    ---@param Player ply
+	---@param string[] args
     call = function (ply, _, args)
         if not ply.human then return end
         if not ply.data.protection then
@@ -185,5 +185,32 @@ plugin.commands["/prot"] = {
 
         local secondsLeft = math.ceil(ply.data.protection / 60)
         ply:sendMessage("You got " .. secondsLeft .. " seconds of spawn protection left.")
+    end
+}
+
+
+plugin.commands["/god"] = {
+    canCall = function (ply) return ply.isAdmin end,
+    ---@param Player ply
+    call = function (ply)
+        local isGodModed = ply.data.godMode
+        if not ply.human then
+            ply:sendMessage("You have no human.")
+            return
+        end
+
+        if isGodModed then
+            ply.human.isImmortal = false
+            ply.data.godMode = false
+            ply.data.protection = nil
+
+            ply:sendMessage("God mode: off")
+        else
+            ply.human.isImmortal = true
+            ply.data.godMode = true
+            ply.data.protection = 7777777777777
+
+            ply:sendMessage("God mode: on")
+        end
     end
 }

@@ -131,6 +131,8 @@ plugin.commands['/car'] = {
 	end
 }
 
+local hs = require 'plugins.hoeStuff'
+
 plugin.commands['/heli'] = {
 	info = 'Spawn a helicopter.',
 	usage = '/heli [color]',
@@ -158,7 +160,13 @@ plugin.commands['/bot'] = {
 		pos.y = pos.y + 0.2
 		pos.z = pos.z + (2 * math.sin(man.viewYaw - math.pi/2))
 
-		local team = tonumber(args[1] or 6)
+
+		local team = tonumber(args[1] or 7)
+
+		if team == 7 then
+			hs:spawnHoe(pos, "Invitro", nil)
+			return
+		end
 
 		local bot = players.createBot()
 		if bot ~= nil then

@@ -6,7 +6,7 @@ plugin.description = 'Only let in certain players.'
 
 plugin.defaultConfig = {
 	-- How many people can be let in regardless of if they're whitelisted
-	maxPublicSlots = 50
+	maxPublicSlots = 200
 }
 
 local json = require 'main.json'
