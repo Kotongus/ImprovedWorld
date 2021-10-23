@@ -37,9 +37,11 @@ end
 ---@param boolean killed
 local function firePoliceman (policeman, killed)
     policeman.team = 17
-    policeman.human.model = 0
-    policeman.human.tieColor = 0
-    policeman.human.suitColor = 0
+    if policeman.human then
+        policeman.human.model = 0
+        policeman.human.tieColor = 0
+        policeman.human.suitColor = 0
+    end
 
     policeman.human.lastUpdatedWantedGroup = -1
     policeman:update()
@@ -91,16 +93,27 @@ plugin:addHook(
 
 
 plugin:addHook(
+    "TimeElapsed",
+    ---@param integer time
+    function (time)
+        if time == 1 then
+            for _, player in ipairs(players.getNonBots()) do
+                if player.criminalRating >= 100 and player.team == policeTeam then
+                    firePoliceman(player, false)
+                end
+            end
+        end
+    end
+)
+
+
+plugin:addHook(
     'PlayerActions',
     ---@param Player ply
     function (ply)
         if ply.numActions ~= ply.lastNumActions then
 			local action = ply:getAction(ply.lastNumActions)
 
-            print("Ply: "..ply.name)
-            print("Type: "..action.type)
-            print("A: "..action.a)
-            print("B: "..action.b)
 
             if action.type == 0 and action.a == 20 and (action.b == 1 or action.b == 0) and ply.human then
                 local pos = ply.human.pos

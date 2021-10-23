@@ -11,6 +11,7 @@ plugin:addHook(
         for _, ply in ipairs(players.getAll()) do
             if not ply.human then return end
             ply.human.stamina = 125
+            ply.human.maxStamina = 125
         end
     end
 )

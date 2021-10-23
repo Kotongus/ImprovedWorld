@@ -14,6 +14,11 @@ plugin:addHook(
         local rand = math.random(5)
         local color = randColors[rand]
 
+        ply.model = 0
+        ply.tieColor = 0
+        ply.human.model = 0
+        ply.human.tieColor = 0
+        
         ply.human.suitColor = color
         ply.suitColor = color
 
