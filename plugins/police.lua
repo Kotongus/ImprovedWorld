@@ -34,7 +34,8 @@ local function rewardPoliceman (policeman, criminal)
 end
 
 ---@param Player policeman
-local function firePoliceman (policeman)
+---@param boolean killed
+local function firePoliceman (policeman, killed)
     policeman.team = 17
     policeman.human.model = 0
     policeman.human.tieColor = 0
@@ -43,13 +44,15 @@ local function firePoliceman (policeman)
     policeman.human.lastUpdatedWantedGroup = -1
     policeman:update()
 
-    
-    policeman:sendMessage("You got fired from police because you shot at innocent")
+    if killed then
+        policeman:sendMessage("You got fired from police because you shot at innocent")
+    end
 end
 
 ---@param Player ply
 local function hirePoliceman(ply)
     if ply.criminalRating >= 100 then
+        firePoliceman (ply, false)
         ply:sendMessage("You can't apply as a policeman because you are a criminal")
         return
     end
@@ -76,12 +79,12 @@ plugin:addHook(
     ---@param Player victim
     ---@param HookInteger points
     function (shooter, victim, points)
-        if shooter.team == policeTeam and shooter.criminalRating + points >= 100 then
+        if shooter.team == policeTeam and shooter.criminalRating + points.value >= 100 then
             firePoliceman(shooter)
         end
 
         if victim.team == policeTeam and shooter.team ~= policeTeam then
-            points = math.ceil(points * 1.5)
+            points.value = math.ceil(points.value * 1.5)
         end
     end
 )
@@ -93,6 +96,11 @@ plugin:addHook(
     function (ply)
         if ply.numActions ~= ply.lastNumActions then
 			local action = ply:getAction(ply.lastNumActions)
+
+            print("Ply: "..ply.name)
+            print("Type: "..action.type)
+            print("A: "..action.a)
+            print("B: "..action.b)
 
             if action.type == 0 and action.a == 20 and (action.b == 1 or action.b == 0) and ply.human then
                 local pos = ply.human.pos
