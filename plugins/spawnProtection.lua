@@ -131,6 +131,9 @@ plugin:addHook(
 
                 elseif ply.human.vehicle then
                     removeSpawnProtection(ply, true)
+
+                elseif ply.isZombie then
+                    removeSpawnProtection(ply, true)
                 end
             end
         end

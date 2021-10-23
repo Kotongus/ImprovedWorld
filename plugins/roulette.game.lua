@@ -180,6 +180,7 @@ local function changeGameState (pc, state)
             if pc.data.game.selectedColor == 2 then multiplier = 10 end
 
             pc.data.game.user.money = pc.data.game.user.money + tonumber(bet) * multiplier
+            pc.data.game.user:sendMessage("+$"..tonumber(bet) * multiplier.." (Won on roulette)")
             
         else
             cs:setPcImage(pc, "roulette/lose")

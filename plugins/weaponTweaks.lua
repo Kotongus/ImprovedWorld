@@ -30,6 +30,12 @@ plugin:addEnableHandler(function (isReload)
     invisiGun.secondaryGripStiffness = 999
 
 
+    local magnum = itemTypes.getByName("Magnum")
+
+    magnum.bulletVelocity = 0.5
+    magnum.bulletSpread = 0
+
+
 end)
 
 

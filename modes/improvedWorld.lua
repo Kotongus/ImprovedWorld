@@ -17,7 +17,7 @@ local spawningPlayers = {}
 
 mode:addEnableHandler(function (isReload)
 	server.type = TYPE_WORLD --+16
-	server.name = "Kotus | Testing" --Max length 31
+	server.name = "Kotus | Improved World | Police" --Max length 31
 	server.maxPlayers = 50
 	server.worldStartCash = 5000
 	server.worldMinCash = 100
@@ -26,9 +26,9 @@ mode:addEnableHandler(function (isReload)
 
 	server.worldCrimeNoSpawn = 500
 	
-	server.worldCrimeCivCiv = 15
-	server.worldCrimeCivTeam = 15
-	server.worldCrimeTeamCiv = 10
+	server.worldCrimeCivCiv = 25
+	server.worldCrimeCivTeam = 25
+	server.worldCrimeTeamCiv = 20
 	server.worldCrimeTeamTeam = 0
 	server.worldCrimeTeamTeamInBase = 0
 

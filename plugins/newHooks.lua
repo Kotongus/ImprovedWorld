@@ -30,4 +30,22 @@ plugin:addHook(
     end
 )
 
---TimeElapsed integer time, timer.lua
+
+plugin:addHook(
+    "PlayerGiveWantedLevel",
+    ---@param Player ply
+    ---@param Player victim
+    function (ply, victim)
+        victim.data.lastAttacker = ply
+    end
+)
+
+
+plugin:addHook(
+    "PlayerDeathTax",
+    ---@param Player ply
+    function (ply)
+        if not ply.human then return end
+        hook.run("HumanDeath", ply.human, ply.data.lastAttacker)
+    end
+)

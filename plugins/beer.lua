@@ -90,7 +90,7 @@ plugin.commands["/beer"] = {
         local price = plugin.defaultConfig.beerPrice
 
         if not ply.human then
-            ply:sendMessage("You need to first spawn to buy beer.")
+            ply:sendMessage("You have to first spawn to buy beer")
         elseif ply.money >= price then
             ply.money = ply.money - price
             ply:updateFinance()
