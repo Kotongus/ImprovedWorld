@@ -66,6 +66,19 @@ end
 
 
 plugin:addHook(
+    "PlayerGiveWantedLevel",
+    ---@param Player shooter
+    ---@param Player victim
+    ---@param HookInteger points
+    function (shooter, victim, points)
+        if victim.team == policeTeam and shooter.team ~= policeTeam then
+            points = math.ceil(points * 1.5)
+        end
+    end
+)
+
+
+plugin:addHook(
     'PlayerActions',
     ---@param Player ply
     function (ply)

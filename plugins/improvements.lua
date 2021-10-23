@@ -3,6 +3,7 @@ local improvements = { _version = "2" }
 improvements.list = [[
 - Monsota is now police
 - Buy beer for $50 /beer
+- Randomised shirt colors
 - Bar with girls at the city centre
 - Helis in shops
 - No waiting for respawn
