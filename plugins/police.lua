@@ -44,11 +44,16 @@ local function firePoliceman (policeman)
     policeman:update()
 
     
-    policeman:sendMessage("You got fired from police because you killed innocent")
+    policeman:sendMessage("You got fired from police because you shot at innocent")
 end
 
 ---@param Player ply
 local function hirePoliceman(ply)
+    if ply.criminalRating >= 100 then
+        ply:sendMessage("You can't apply as a policeman because you are a criminal")
+        return
+    end
+
     ply.team = policeTeam
 
     ply.human.model = 1
@@ -71,6 +76,10 @@ plugin:addHook(
     ---@param Player victim
     ---@param HookInteger points
     function (shooter, victim, points)
+        if shooter.team == policeTeam and shooter.criminalRating + points >= 100 then
+            firePoliceman(shooter)
+        end
+
         if victim.team == policeTeam and shooter.team ~= policeTeam then
             points = math.ceil(points * 1.5)
         end
