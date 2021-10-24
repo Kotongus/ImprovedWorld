@@ -138,7 +138,7 @@ plugin:addHook(
     ---@param Human human
     ---@param Player killer
     function (human, killer)
-        if killer and (human.player.isBot or human.player.isZombie) then
+        if killer and not (human.player.isBot or human.player.isZombie) then
             if human.player.criminalRating >= 100 and killer.team == policeTeam then
                 rewardPoliceman(killer, human.player)
             elseif human.player.criminalRating < 100 and killer.team == policeTeam then

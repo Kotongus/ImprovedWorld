@@ -32,7 +32,7 @@ plugin:addEnableHandler(function (isReload)
 
     local magnum = itemTypes.getByName("Magnum")
 
-    magnum.bulletVelocity = 0.5
+    magnum.bulletVelocity = 0.47
     magnum.bulletSpread = 0
 
 
