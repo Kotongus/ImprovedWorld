@@ -46,6 +46,8 @@ plugin:addHook(
     ---@param Player ply
     function (ply)
         if not ply.human then return end
-        hook.run("HumanDeath", ply.human, ply.data.lastAttacker)
+        if not ply.human.isAlive then
+            hook.run("HumanDeath", ply.human, ply.data.lastAttacker)
+        end
     end
 )

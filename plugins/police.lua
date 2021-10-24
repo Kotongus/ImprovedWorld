@@ -75,21 +75,21 @@ local function hirePoliceman(ply)
 end
 
 
-plugin:addHook(
-    "PlayerGiveWantedLevel",
-    ---@param Player shooter
-    ---@param Player victim
-    ---@param HookInteger points
-    function (shooter, victim, points)
-        if shooter.team == policeTeam and shooter.criminalRating + points.value >= 100 then
-            firePoliceman(shooter)
-        end
+-- plugin:addHook(
+--     "PlayerGiveWantedLevel",
+--     ---@param Player shooter
+--     ---@param Player victim
+--     ---@param HookInteger points
+--     function (shooter, victim, points)
+--         if shooter.team == policeTeam and shooter.criminalRating + points.value >= 100 then
+--             firePoliceman(shooter)
+--         end
 
-        if victim.team == policeTeam and shooter.team ~= policeTeam then
-            points.value = math.ceil(points.value * 1.5)
-        end
-    end
-)
+--         if victim.team == policeTeam and shooter.team ~= policeTeam then
+--             points.value = math.ceil(points.value * 1.5)
+--         end
+--     end
+-- )
 
 
 plugin:addHook(
