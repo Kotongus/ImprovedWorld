@@ -98,7 +98,6 @@ plugin:addHook(
     function (time)
         if time == 1 then
             for _, player in ipairs(players.getNonBots()) do
-                print("police.lua:101 "..player.team..", "..player.name)
                 if player.criminalRating >= 100 and player.team == policeTeam then
                     firePoliceman(player, false)
                 end
