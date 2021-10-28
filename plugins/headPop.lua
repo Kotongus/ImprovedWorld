@@ -22,7 +22,7 @@ local function HumanDamage(_human, _bone, _damage)
     if not _human.data["headDamage"] then return end
     if not _human.isAlive and _bone == 3 then
         _human.data["headDamage"] = _human.data["headDamage"] + _damage;
-        if _human.data["headDamage"] > headPopDamage then
+        if _human.data["headDamage"] > headPopDamage + math.random(50) then
             _human.head = 15;
             _human.hair = 15;
             _human.lastUpdatedWantedGroup = -1;
