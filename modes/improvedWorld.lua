@@ -4,7 +4,7 @@ mode.name = 'Improved World'
 mode.author = 'Koto'
 
 --Here type in your debug spawn and you will spawn there
-local debugSpawn = nil --Vector(1659, 73.5, 1486)
+local debugSpawn = Vector(1518, 26, 1068)
 
 
 mode.defaultConfig = {
@@ -15,9 +15,23 @@ mode.defaultConfig = {
 local spawningPlayers = {}
 
 
+function fileExists(name)
+	local f = io.open(name,"r")
+	if f ~= nil then io.close(f) return true else return false end
+ end
+
+
 mode:addEnableHandler(function (isReload)
 	server.type = TYPE_WORLD --+16
-	server.name = "Kotus | Improved World | Police" --Max length 31
+	
+	if not fileExists("config.txt") then
+		server.name = "Kotus | Improved World | Police" --Max length 31
+		debugSpawn = nil
+	else
+		server.name = "Kotus / Testing" --Max length 31
+		server.password = "t0"
+	end
+
 	server.maxPlayers = 50
 	server.worldStartCash = 5000
 	server.worldMinCash = 100
