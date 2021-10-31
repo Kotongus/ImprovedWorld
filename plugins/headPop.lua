@@ -19,7 +19,7 @@ end
 plugin:addHook("PlayerDeathTax", PlayerDeathTax);
 
 local function HumanDamage(_human, _bone, _damage)
-    if not _human.data["headDamage"] then return end
+    if not _human.data["headDamage"] or _human.head == 15 then return end
     if not _human.isAlive and _bone == 3 then
         _human.data["headDamage"] = _human.data["headDamage"] + _damage;
         if _human.data["headDamage"] > headPopDamage + math.random(50) then
