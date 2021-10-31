@@ -31,13 +31,15 @@ local spawn_positions = {
 local tracker = {}
 for i = 1, #spawn_positions do tracker[i] = 0; end
 
+local timer = {};
+
 local function Zombies(c)
     local spawn_index = math.random(#spawn_positions);
     local amount = math.random(3,5);
     if tracker[spawn_index] < 0 then tracker[spawn_index] = 0; end
     tracker[spawn_index] = tracker[spawn_index] + amount;
     --chat.tellAdmins(spawn_positions[spawn_index].location .. ' ' .. tracker[spawn_index]);
-
+    timer[spawn_index] = os.time();
     for i = 1, amount do
         local player_bot = players.createBot();
         player_bot.isZombie = true;
@@ -81,10 +83,11 @@ plugin.commands["/trackz"] = {
     info = "Returns known zombie sightings";
     usage = "/trackzombies";
     call = function(player)
+        local t = os.time()
         events.createMessage(6, "Known zombie sightings:", player.index, 1);
         for k, v in ipairs(tracker) do
             if v > 0 then
-                events.createMessage(6, "* " .. spawn_positions[k].location, player.index, 1);
+                events.createMessage(6, "* (" .. t - timer[k] .. "s) " .. spawn_positions[k].location, player.index, 1);
             else tracker[k] = 0 end
         end
     end;
