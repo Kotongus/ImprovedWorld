@@ -1,0 +1,3 @@
+Server log
+ViniCastilho(2562869) Joined
+ViniCastilho(2562869) Exited
