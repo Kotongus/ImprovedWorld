@@ -7,6 +7,7 @@ local headPopDamage = 150;
 local grenadeDistance = 10;
 
 local function popHead(_human)
+    _human.headHP = _human.headHP - 100 - headPopDamage
     _human.isAlive = false
     _human.head = 15;
     _human.hair = 15;
@@ -17,7 +18,7 @@ end
 
 local function GrenadeExplode(_grenade)
     for _, _human in ipairs(humans.getAll()) do
-        local dist = _human:getBone(15).pos:dist(_grenade.pos)
+        local dist = _human.pos:dist(_grenade.pos)
         if dist <= grenadeDistance then
             popHead(_human)
         end
