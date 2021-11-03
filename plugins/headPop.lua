@@ -15,7 +15,7 @@ local function popHead(_human)
 end
 
 
-local function PostGrenadeExplode(_grenade)
+local function GrenadeExplode(_grenade)
     for _, _human in ipairs(humans.getAll()) do
         local dist = _human:getBone(15).pos:dist(_grenade.pos)
         if dist <= grenadeDistance then
@@ -23,7 +23,7 @@ local function PostGrenadeExplode(_grenade)
         end
     end
 end
-plugin:addHook("PostGrenadeExplode", PostGrenadeExplode)
+plugin:addHook("GrenadeExplode", PostGrenadeExplode)
 
 
 local function HumanDamage(_human, _bone, _damage)
