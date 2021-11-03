@@ -18,7 +18,7 @@ end
 
 local function GrenadeExplode(_grenade)
     for _, _human in ipairs(humans.getAll()) do
-        local dist = _human:getBone(15).pos:dist(_grenade.pos)
+        local dist = _human.pos:dist(_grenade.pos)
         if dist <= grenadeDistance then
             popHead(_human)
         end
