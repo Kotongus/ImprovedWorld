@@ -4,7 +4,7 @@ plugin.author = "ViniCastilho";
 plugin.description = "Pop heads from dead bodies when enough damage is caused";
 
 local headPopDamage = 150;
-local grenadeDistance = 10;
+local grenadeDistance = 7;
 
 local function popHead(_human)
     _human.headHP = _human.headHP - 100 - headPopDamage
@@ -16,15 +16,15 @@ local function popHead(_human)
 end
 
 
-local function GrenadeExplode(_grenade)
+local function PostGrenadeExplode(_grenade)
     for _, _human in ipairs(humans.getAll()) do
-        local dist = _human.pos:dist(_grenade.pos)
+        local dist = _human:getBone(15).pos:dist(_grenade.pos)
         if dist <= grenadeDistance then
             popHead(_human)
         end
     end
 end
-plugin:addHook("GrenadeExplode", PostGrenadeExplode)
+plugin:addHook("PostGrenadeExplode", PostGrenadeExplode)
 
 
 local function HumanDamage(_human, _bone, _damage)
