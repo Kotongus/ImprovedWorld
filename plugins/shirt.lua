@@ -28,6 +28,29 @@ plugin:addHook(
 )
 
 
+plugin:addHook(
+    "TimeElapsed",
+    function (time)
+        if time == 1 then
+            for _, human in ipairs(humans.getAll()) do
+                if human.data.disco then
+                    local color = human.suitColor
+                    for i = 1, #randColors do
+                        if randColors[i] == color then
+                            color = randColors[i + 1]
+                            break
+                        end
+                    end
+
+                    human.suitColor = color
+                    human.lastUpdatedWantedGroup = -1
+                end
+            end
+        end
+    end
+)
+
+
 plugin.commands["/shirt"] = {
     call = function (ply, _, args)
         if args[1] == "list" then
@@ -61,7 +84,7 @@ plugin.commands["/shirt"] = {
 
         local color = colorsName[args[1]:lower()]
 
-        if not color and args[1] ~= "sus" then
+        if not color and args[1] ~= "sus" and args[1] ~= "disco" then
             color = tonumber(args[1])
             if not color then
                 ply:sendMessage("You provided wrong color")
@@ -70,6 +93,16 @@ plugin.commands["/shirt"] = {
         end
 
         if args[1] == "sus" then color = colorsName["red"] end
+        if args[1] == "disco" then
+            ply.human.data.disco = not ply.human.data.disco
+            if ply.human.data.disco then
+                ply:sendMessage("Disco mode: ON")
+                color = 0
+            else
+                ply:sendMessage("Disco mode: OFF")
+                color = 0
+            end
+        end
 
         ply.human.suitColor = color
         ply.human.lastUpdatedWantedGroup = -1
