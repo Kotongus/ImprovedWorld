@@ -9,7 +9,7 @@ local function addHeliModel (heli)
 
     local model = vehicles.create(vehicleTypes[14], heli.pos:clone(), heli.rot:clone(), heli.color)
 
-    model.isLocked = true
+    model.isLocked = false
     model.controllableState = 0
     model.rigidBody.mass = 1000
 
@@ -32,6 +32,13 @@ end
 plugin:addHook(
     "Logic",
     function()
+        for _, item in ipairs(items.getAll()) do
+            if item.vehicle and item.vehicle.type.index == 12 then
+                item:remove()
+            end
+        end
+
+
         for i, human in ipairs(humans.getAll()) do
             local heli = human.vehicle
 

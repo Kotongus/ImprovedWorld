@@ -4,7 +4,7 @@ plugin.author = "ViniCastilho";
 plugin.description = "Pop heads from dead bodies when enough damage is caused";
 
 local headPopDamage = 150;
-local grenadeDistance = 7;
+local grenadeDistance = 5.5;
 
 local function popHead(_human)
     _human.headHP = _human.headHP - 100 - headPopDamage

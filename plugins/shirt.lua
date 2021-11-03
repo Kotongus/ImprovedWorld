@@ -33,7 +33,7 @@ plugin:addHook(
     function (time)
         if time == 1 then
             for _, human in ipairs(humans.getAll()) do
-                if human.data.disco then
+                if human.data.disco and human.isAlive then
                     local color = human.suitColor
                     for i = 1, #randColors do
                         if randColors[i] == color then
