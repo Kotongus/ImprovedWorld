@@ -62,7 +62,6 @@ function timers.loop (delay, func, args)
 
 end
 
-
 plugin:addHook(
     "Physics",
     function ()

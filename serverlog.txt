@@ -1,3 +1,2 @@
 Server log
-ViniCastilho(2562869) Joined
-ViniCastilho(2562869) Exited
+Koto(6394914) Joined

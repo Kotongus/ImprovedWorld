@@ -67,6 +67,7 @@ function computerStuff:spawnPc (pos, rot, game)
     pc.data.display = { x = self.screenX, y = self.screenY, frame = {} }
     pc.data.gameName = game
     pc.data.game = {}
+    pc.data.const = true
 
     pc.computerCursor = -1
 

@@ -4,6 +4,8 @@ plugin.name = 'Spawn Protection'
 plugin.author = 'Koto'
 plugin.description = 'Adds spawn protection.'
 
+local lastReset = 0
+
 
 plugin.defaultConfig = {
     --In seconds
@@ -102,6 +104,7 @@ end
 plugin:addHook(
     "Logic",
     function ()
+        lastReset = lastReset + 1
         for _, ply in ipairs(players.getNonBots()) do
             if ply.data.protection and ply.human and not ply.data.godMode then
                 ply.data.protection = ply.data.protection - 1
@@ -142,6 +145,15 @@ plugin:addHook(
 
 
 plugin:addHook(
+    "PostResetGame",
+    ---@param integer reason
+    function (reason)
+        lastReset = 0
+    end
+)
+
+
+plugin:addHook(
     "HumanDamage",
     ---@param Human human
     function (human)
@@ -167,7 +179,7 @@ plugin:addHook(
     "PlayerSpawnedIn",
     ---@param Player ply
     function (ply)
-        if not ply.isBot and not ply.isZombie then
+        if not ply.isBot and not ply.isZombie and lastReset > 6 then
             addSpawnProtection(ply)
         end
     end
