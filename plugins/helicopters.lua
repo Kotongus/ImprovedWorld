@@ -21,6 +21,7 @@ local function addHeliModel (heli)
     end
 
     model.data.heli = heli
+    model.data.isModel = true
     heli.data.model = model
     heli.rigidBody.data.model = heli
     model.rigidBody.data.vehicle = model
@@ -32,9 +33,10 @@ end
 plugin:addHook(
     "Logic",
     function()
-        for _, item in ipairs(items.getAll()) do
-            if item.vehicle and item.vehicle.type.index == 12 then
-                item:remove()
+        for _, vehicle in ipairs(vehicles.getAll()) do
+            if vehicle.data.isModel and not vehicle.data.heli.isActive then
+                vehicle.data.heli:remove()
+                vehicle:remove()
             end
         end
 
