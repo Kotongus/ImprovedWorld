@@ -179,7 +179,7 @@ local function changeGameState (pc, state)
             local multiplier = 1
             if pc.data.game.selectedColor == 2 then multiplier = 10 end
 
-            pc.data.game.user.money = pc.data.game.user.money + tonumber(bet) * multiplier
+            pc.data.game.user.money = pc.data.game.user.money + tonumber(bet) * 2 * multiplier
             pc.data.game.user:sendMessage("+$"..tonumber(bet) * multiplier.." (Won on roulette)")
             
         else

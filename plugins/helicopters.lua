@@ -90,10 +90,10 @@ plugin:addHook(
 )
 
 
-
 plugin:addHook(
     "CollideBodies",
     function(aBody, bBody, aLocalPos, bLocalPos, normal, a, b, c, d)
+
         if not aBody or not bBody then
             return
         end

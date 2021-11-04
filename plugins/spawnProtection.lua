@@ -9,7 +9,7 @@ local lastReset = 0
 
 plugin.defaultConfig = {
     --In seconds
-    protectionTime = 60
+    protectionTime = 400
 }
 
 

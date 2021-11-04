@@ -4,7 +4,7 @@ mode.name = 'Improved World'
 mode.author = 'Koto'
 
 --Here type in your debug spawn and you will spawn there
-local debugSpawn = Vector(1518, 26, 1068)
+local debugSpawn = nil --Vector(1518, 26, 1068)
 
 
 mode.defaultConfig = {

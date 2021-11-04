@@ -79,17 +79,19 @@ local sameShops = {}
 plugin:addHook(
     "EconomyCarMarket",
     function ()
-        local num = math.random(15)
-        local heliType = vehicleTypes[12]
+        if math.random(5) == 5 then
+            local num = math.random(15)
+            local heliType = vehicleTypes[12]
         
-        for i, shop in ipairs(getAllCarShops()) do
-            if sameShops[i] == shop or sameShops[i] == nil then
-                sameShops[i] = shop
-                local car = shop:getShopCar(num)
-                car.type = heliType
-                car.price = heliType.price
-            end
+            for i, shop in ipairs(getAllCarShops()) do
+                if sameShops[i] == shop or sameShops[i] == nil then
+                    sameShops[i] = shop
+                    local car = shop:getShopCar(num)
+                    car.type = heliType
+                    car.price = heliType.price
+                end
 
+            end
         end
     end
 )
