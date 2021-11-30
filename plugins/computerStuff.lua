@@ -116,6 +116,17 @@ function computerStuff:write (pc, pos, message, color)
     end
 end
 
+function computerStuff:drawRect (pc, color, pos1, pos2, character)
+    local rangeY = math.abs(pos2.y - pos1.y)
+    local rangeX = math.abs(pos2.x - pos1.x)
+
+    for y = pos1.y, rangeY do
+        for x = pos1.x, rangeX do
+            pc.data.display.frame[y + 1][x + 1] = { color = color, character = character or nil }
+        end
+    end
+end
+
 ---@param Item pc
 ---@return Player
 function computerStuff:getPcUser (pc)

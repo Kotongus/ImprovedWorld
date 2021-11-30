@@ -168,7 +168,7 @@ local function changeGameState (pc, state)
 
         if pc.data.game.selectedColor == pc.data.game.colors[pc.data.game.roulettePos + 1] then
             cs:setPcImage(pc, "roulette/win")
-            cs:write(pc, Vector(28, 11, 0), "You won $"..pc.data.game.inputBet.."!")
+            cs:write(pc, Vector(28, 11, 0), "You won $"..pc.data.game.inputBet * 2 * multiplier.."!")
 
             local bet = pc.data.game.inputBet
             
@@ -178,9 +178,10 @@ local function changeGameState (pc, state)
 
             local multiplier = 1
             if pc.data.game.selectedColor == 2 then multiplier = 10 end
+            if not pc.data.game.user.isActive then return end
 
             pc.data.game.user.money = pc.data.game.user.money + tonumber(bet) * 2 * multiplier
-            pc.data.game.user:sendMessage("+$"..tonumber(bet) * multiplier.." (Won on roulette)")
+            pc.data.game.user:sendMessage("+$"..tonumber(bet) * 2 * multiplier.." (Won on roulette)")
             
         else
             cs:setPcImage(pc, "roulette/lose")

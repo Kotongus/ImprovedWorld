@@ -93,7 +93,7 @@ plugin.commands["/shirt"] = {
         end
 
         if args[1] == "sus" then color = colorsName["red"] end
-        if args[1] == "disco" then
+        if args[1] == "disco" and (ply.isAdmin or ply.data.isVip) then
             ply.human.data.disco = not ply.human.data.disco
             if ply.human.data.disco then
                 ply:sendMessage("Disco mode: ON")

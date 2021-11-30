@@ -1,7 +1,8 @@
 local plugin = ...
-plugin.name = "Helicopter Fix"
-plugin.author = "olv"
-plugin.description = "Fixes the helicopter model."
+plugin.name = "Helicopters"
+plugin.author = "Koto"
+plugin.description = "Adds models to helis"
+local heliHealth = 350
 
 
 local function addHeliModel (heli)
@@ -9,16 +10,14 @@ local function addHeliModel (heli)
 
     local model = vehicles.create(vehicleTypes[14], heli.pos:clone(), heli.rot:clone(), heli.color)
 
-    model.isLocked = false
+    model.isLocked = true
+    model.health = heliHealth
     model.controllableState = 0
     model.rigidBody.mass = 1000
 
+
     model.type = vehicleTypes[0]
     model:updateType()
-
-    for i = 0, 3 do
-        model:updateDestruction(1, i, Vector(), Vector())
-    end
 
     model.data.heli = heli
     model.data.isModel = true
@@ -42,14 +41,24 @@ plugin:addHook(
 
 
         for i, human in ipairs(humans.getAll()) do
+
             local heli = human.vehicle
 
             if heli and heli.type.index == 12 and heli.data.model and heli.health > 0 then
                 heli.data.soundCountdown = heli.data.soundCountdown or 0
 
                 if heli.data.soundCountdown < 1 and human.vehicleSeat == 0 then
-                    heli.data.soundCountdown = 240
-                    events.createSound(42, heli.pos, 0.5, 1)
+                    local heliSpeed = heli.rigidBody.vel:clone()
+                    heliSpeed = math.abs(heliSpeed.x) + math.abs(heliSpeed.y) + math.abs(heliSpeed.z)
+
+                    local waitTime = 240
+
+                    if heliSpeed > 0.35 then
+                        waitTime = 100
+                    end
+
+                    heli.data.soundCountdown = waitTime
+                    events.createSound(42, heli.pos, 1, 0.5)
                 end
             end
         end
@@ -73,6 +82,7 @@ plugin:addHook(
                     model.pos, model.rigidBody.pos =
                         heli.pos:clone() + (-heli.rot:getRight() * 0.3),
                         heli.rigidBody.pos:clone() + (-heli.rigidBody.rot:getRight() * 0.3)
+
 
                     model.vel, model.rigidBody.vel = heli.vel:clone(), heli.rigidBody.vel:clone()
                     model.rot, model.rigidBody.rot = heli.rot:clone(), heli.rigidBody.rot:clone()

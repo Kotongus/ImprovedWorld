@@ -185,6 +185,16 @@ plugin:addHook(
     end
 )
 
+plugin:addHook(
+    "PostPlayerDelete",
+    ---@param Player ply
+    function (ply)
+        if ply.human then
+            removeSpawnProtection(ply, false)
+        end
+    end
+)
+
 
 plugin.commands["/prot"] = {
     info = "See when your spawn protection ends.",
