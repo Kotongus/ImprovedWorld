@@ -11,8 +11,7 @@ improvements.list = [[
 - Popping heads
 - You spawn directly at shops
 - Uzi costs $150
-- Less criminal rating
-- Improved spawn protection
+- Helis explode when they hit a wall too hard
 ]]
 
 function improvements.getList()

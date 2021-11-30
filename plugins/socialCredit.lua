@@ -4,6 +4,10 @@ plugin.name = "Social credits"
 plugin.description = "Adds censorship like in china yaaay"
 plugin.author = "Koto"
 
+local isOn = false
+
+if isOn then
+
 local function censoredWord (filter, credits, reason)
      return {filter = filter, credits = credits, reason = reason}
 end
@@ -108,3 +112,6 @@ plugin:addHook(
           end
      end
 )
+
+
+end

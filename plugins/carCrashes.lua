@@ -5,7 +5,7 @@ plugin.description = "Adds car crashes"
 
 local crashVelDivider = 2.5
 local crashStep = 0.34
-local heliExplosionStep = 0.65
+local heliExplosionStep = 0.6
 
 
 local function explodeVehicle(car)

@@ -131,13 +131,3 @@ plugin:addHook(
         end
     end
 )
-
-
-
-plugin.commands["/helifix"] = {
-    info = "Get heli fix information.",
-    usage = "/helifix",
-    call = function(ply)
-        ply:sendMessage("olv's Heli Fix | 09/28/21")
-    end
-}
