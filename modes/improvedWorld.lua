@@ -4,7 +4,7 @@ mode.name = 'Improved World'
 mode.author = 'Koto'
 
 --Here type in your debug spawn and you will spawn there
-local debugSpawn = Vector(1518, 26, 1068)
+local debugSpawn = nil--Vector(1518, 26, 1068)
 
 
 mode.defaultConfig = {
@@ -24,13 +24,7 @@ function fileExists(name)
 mode:addEnableHandler(function (isReload)
 	server.type = TYPE_WORLD --+16
 	
-	if not fileExists("config.txt") then
-		server.name = "Kotus | Improved World | Police" --Max length 31
-		debugSpawn = nil
-	else
-		server.name = "Kotus / Testing" --Max length 31
-		server.password = "t0"
-	end
+	server.name = "Kotus Improved World Repo"
 
 	server.maxPlayers = 50
 	server.worldStartCash = 5000
@@ -46,7 +40,7 @@ mode:addEnableHandler(function (isReload)
 	server.worldCrimeTeamTeam = 0
 	server.worldCrimeTeamTeamInBase = 0
 
-	server.adminPassword = "look mayor i got drip#$3"
+	server.adminPassword = "Change it"
 
 	if not isReload then
 		server:reset()

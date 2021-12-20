@@ -2,6 +2,7 @@ local improvements = { _version = "2" }
 
 improvements.list = [[
 - Monsota is now police
+- Grabbing
 - Buy beer for $50 /beer
 - Randomised shirt colors
 - /shirt [color] to change shirt color for free

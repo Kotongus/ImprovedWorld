@@ -2,22 +2,16 @@ local plugin = ...
 plugin.name = "Helicopters"
 plugin.author = "Koto"
 plugin.description = "Adds models to helis"
-local heliHealth = 350
+local defaultHeliHealth = 350
 
 
 local function addHeliModel (heli)
-    assert(heli, heli.type.index == 12, "No valid vehicle provided")
-
-    local model = vehicles.create(vehicleTypes[14], heli.pos:clone(), heli.rot:clone(), heli.color)
+    local model = vehicles.create(vehicleTypes[0], heli.pos:clone(), heli.rot:clone(), heli.color)
 
     model.isLocked = true
-    model.health = heliHealth
+    model.health = defaultHeliHealth
     model.controllableState = 0
     model.rigidBody.mass = 1000
-
-
-    model.type = vehicleTypes[0]
-    model:updateType()
 
     model.data.heli = heli
     model.data.isModel = true

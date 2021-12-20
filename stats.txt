@@ -1,0 +1,11 @@
+numofmissions=0
+numofbullets=0
+users=5
+totaltime=1588
+averagetime=317
+
+0:Koto:918 (10707)
+1:ViniCastilho:568 (1099)
+2:hot mama finder:20 (25311)
+3:Ainsley:36 (39199)
+4:Cucremus:46 (14507)

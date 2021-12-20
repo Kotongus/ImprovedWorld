@@ -1,0 +1,177 @@
+[05:56:16] [Join] Koto (639-4914) (76561198723295813) from 83.5.219.156
+[06:03:07] [Join] Koto (639-4914) (76561198723295813) from 83.5.219.156
+[06:11:03] [Exit] Koto (639-4914)
+[06:11:54] [Join] Koto (639-4914) (76561198723295813) from 83.5.219.156
+[06:22:42] [Join] Koto (639-4914) (76561198723295813) from 83.5.219.156
+[06:26:43] [Join] hot mama finder (319-5252) (76561198369186871) from 83.24.53.204
+[06:27:34] [Exit] Koto (639-4914)
+[06:27:39] [Join] Koto (639-4914) (76561198723295813) from 83.5.219.156
+[06:34:36] [Exit] hot mama finder (319-5252)
+[06:38:05] [Join] Koto (639-4914) (76561198723295813) from 83.5.219.156
+[06:44:04] [Join] Koto (639-4914) (76561198723295813) from 83.5.219.156
+[06:53:26] [Join] Koto (639-4914) (76561198723295813) from 83.5.219.156
+[07:07:19] [Join] Koto (639-4914) (76561198723295813) from 83.5.219.156
+[12:04:24] [Join] Koto (639-4914) (76561198723295813) from 79.184.43.175
+[12:42:02] [Join] Ainsley (531-0550) (76561198123457103) from 64.44.84.31
+[12:42:10] [Chat][Talk] Koto (639-4914): hi
+[12:42:11] [Chat][Talk] Koto (639-4914): look
+[12:42:23] [Chat][Talk] Ainsley (531-0550): 3
+[12:42:39] [Chat][Talk] Ainsley (531-0550): wwhere is the host
+[12:42:42] [Chat][Talk] Koto (639-4914): so cool and funny
+[12:42:45] [Chat][Talk] Koto (639-4914): usa
+[12:42:48] [Chat][Talk] Ainsley (531-0550): I lag
+[12:42:52] [Chat][Talk] Koto (639-4914): i dont
+[12:42:58] [Chat][Talk] Koto (639-4914): maybe its your wifi
+[12:42:59] [Chat][Talk] Ainsley (531-0550): idk my internet isnt very good rn
+[12:43:03] [Chat][Talk] Ainsley (531-0550): i think so
+[12:43:09] [Chat][Talk] Koto (639-4914): do a speed test
+[12:43:28] [Chat][Talk] Ainsley (531-0550): you know how theres roulette 
+[12:43:37] [Chat][Talk] Koto (639-4914): where
+[12:43:38] [Chat][Talk] Ainsley (531-0550): what if there was like a real roullete table
+[12:43:45] [Chat][Talk] Koto (639-4914): oh cool
+[12:43:47] [Chat][Talk] Koto (639-4914): but
+[12:43:51] [Chat][Talk] Koto (639-4914): itll be hard
+[12:44:04] [Chat][Talk] Ainsley (531-0550): or at least a program where you could play roulette normally
+[12:44:19] [Chat][Talk] Koto (639-4914): you have it 
+[12:44:22] [Chat][Talk] Koto (639-4914): in bar
+[12:44:33] [Chat][Talk] Ainsley (531-0550): yea but you just bet on colors
+[12:44:42] [Chat][Talk] Ainsley (531-0550): 
+[12:48:10] [Chat][Talk] Koto (639-4914): 
+[12:48:14] [Chat][Talk] Koto (639-4914): type a char
+[12:48:20] [Chat][Talk] Koto (639-4914): to make it appear on scree
+[12:52:29] [Exit] Ainsley (531-0550)
+[12:52:29] [Chat][Talk] Ainsley (531-0550): 3
+[12:53:31] [Chat][Talk] Ainsley (531-0550): ok 
+[12:53:33] [Chat][Talk] Ainsley (531-0550): it better now
+[12:53:42] [Chat][Whisper] Ainsley (531-0550): I just turn off my vpn
+[12:54:43] [Chat][Talk] Ainsley (531-0550): 
+[12:55:36] [Chat][Talk] Koto (639-4914): alr done
+[12:56:18] [Chat][Talk] Koto (639-4914): bluescreen
+[12:56:33] [Chat][Talk] Ainsley (531-0550): 50$ fopr a beer
+[12:56:37] [Chat][Talk] Ainsley (531-0550): inflation is crazy
+[12:56:42] [Chat][Talk] Koto (639-4914): yeah XD
+[12:56:48] [Chat][Talk] Koto (639-4914): 
+[12:57:01] [Chat][Talk] Ainsley (531-0550): you should give me back my leaderboard spot
+[12:57:07] [Chat][Talk] Koto (639-4914): get magnumed
+[12:57:14] [Chat][Talk] Koto (639-4914): oh
+[12:57:18] [Chat][Talk] Koto (639-4914): ur protected
+[12:57:19] [Chat][Talk] Ainsley (531-0550): prot
+[12:57:29] [Chat][Talk] Ainsley (531-0550): use a grenade
+[12:57:57] [Chat][Talk] Ainsley (531-0550): lol did i get you
+[12:58:01] [Chat][Talk] Koto (639-4914): yeah
+[12:58:05] [Chat][Talk] Koto (639-4914): here i am
+[12:58:07] [Chat][Talk] Koto (639-4914): no head
+[12:58:09] [Chat][Talk] Koto (639-4914): no life
+[12:58:17] [Chat][Talk] Ainsley (531-0550): no grabbing :(
+[12:58:22] [Chat][Talk] Koto (639-4914): wait a sec
+[12:58:51] [Chat][Talk] Ainsley (531-0550): woah
+[12:58:58] [Chat][Talk] Ainsley (531-0550): how did you make it so you loose prot if you grab
+[12:59:06] [Chat][Talk] Ainsley (531-0550): eh his code probably has a trigger for that
+[12:59:13] [Chat][Talk] Koto (639-4914): HumanGrabbing hook
+[12:59:20] [Chat][Talk] Koto (639-4914): + i decompiled it
+[12:59:25] [Chat][Talk] Ainsley (531-0550): one dayt im gonna decode his grabbing plugion
+[12:59:32] [Chat][Talk] Ainsley (531-0550): and make it so you cant grab people with prot
+[12:59:51] [Chat][Talk] Koto (639-4914): yeah this is fun
+[12:59:56] [Chat][Talk] Koto (639-4914): im gonna leave it on
+[13:00:09] [Chat][Talk] Koto (639-4914): but fuck
+[13:00:11] [Chat][Talk] Koto (639-4914): the lag
+[13:00:17] [Chat][Talk] Koto (639-4914): the lag is too big
+[13:00:17] [Chat][Talk] Ainsley (531-0550): it is kinda slow
+[13:00:27] [Chat][Talk] Ainsley (531-0550): rip
+[13:00:35] [Chat][Talk] Koto (639-4914): show me thicc helis
+[13:00:39] [Chat][Talk] Ainsley (531-0550): 2000 ping :(
+[13:03:19] [Chat][Talk] Ainsley (531-0550): IU kinda expected your player model to look like stingy 
+[13:03:47] [Chat][Talk] Ainsley (531-0550): :(
+[13:03:57] [Chat][Talk] Koto (639-4914): bye
+[13:04:06] [Chat][Talk] Ainsley (531-0550): lets gooooooo
+[13:04:23] [Chat][Talk] Koto (639-4914): noooo
+[13:04:40] [Chat][Talk] Ainsley (531-0550): oh
+[13:04:40] [Chat][Talk] Ainsley (531-0550): ;lol
+[13:04:53] [Chat][Talk] Koto (639-4914): XD
+[13:04:56] [Chat][Talk] Ainsley (531-0550): train
+[13:05:17] [Chat][Talk] Koto (639-4914): you should make it so trains collide with buildings
+[13:05:20] [Chat][Talk] Koto (639-4914): somehow
+[13:05:30] [Chat][Talk] Ainsley (531-0550): Mazybe hmm
+[13:05:33] [Chat][Yell] Ainsley (531-0550): 
+[13:05:35] [Chat][Talk] Koto (639-4914): but idk how
+[13:05:40] [Chat][Talk] Koto (639-4914): maybe collide level
+[13:05:50] [Chat][X] Ainsley (531-0550): I think that you can do that by changing the mod
+[13:06:49] [Chat][X] Ainsley (531-0550): the heli by default has the towncar's hitbox
+[13:07:12] [Chat][Talk] Ainsley (531-0550): ovs code assigns the towncar hitbox to the heli
+[13:07:19] [Chat][Talk] Ainsley (531-0550): or maybe it has its own
+[13:07:31] [Chat][Talk] Ainsley (531-0550): you could probably change it to the train's
+[13:08:18] [Chat][Talk] Ainsley (531-0550): for some reason alex has 2 different models for objects
+[13:08:33] [Chat][Talk] Ainsley (531-0550): one for world colissions and another for object/vehicle coli
+[13:09:51] [Chat][Talk] Ainsley (531-0550): you can use /msg instead of  .say to not show 
+[13:09:55] [Chat][Talk] Ainsley (531-0550): (moderator)
+[13:09:58] [Chat][Talk] Ainsley (531-0550): atht he beginning
+[13:10:05] [Chat][Talk] Koto (639-4914): oh
+[13:10:07] [Chat][Talk] Koto (639-4914): thanks
+[13:10:12] [Chat][Talk] Ainsley (531-0550): jdb moment
+[13:10:19] [Chat][Talk] Koto (639-4914): jdb sux
+[13:10:24] [Chat][Talk] Koto (639-4914): dont tell him
+[13:10:30] [Chat][Talk] Ainsley (531-0550): oxs://dune doesnt even work
+[13:10:47] [Chat][Talk] Ainsley (531-0550): xd
+[13:10:54] [Chat][Talk] Koto (639-4914): no head moment
+[13:11:11] [Chat][Talk] Ainsley (531-0550): did you do the ivory soap thing
+[13:11:15] [Chat][Talk] Koto (639-4914): am i bald
+[13:11:18] [Chat][Talk] Koto (639-4914): yeah
+[13:11:19] [Chat][Talk] Ainsley (531-0550): no
+[13:11:24] [Chat][Talk] Koto (639-4914): okay not cool
+[13:12:04] [Chat][Talk] Koto (639-4914): no head
+[13:12:10] [Chat][Talk] Ainsley (531-0550): so no head
+[13:12:11] [Chat][Talk] Koto (639-4914): no head saturday
+[13:12:18] [Chat][Talk] Koto (639-4914): 
+[13:12:29] [Chat][Talk] Ainsley (531-0550): you still have your head
+[13:12:35] [Chat][Talk] Ainsley (531-0550): what
+[13:12:40] [Chat][Talk] Ainsley (531-0550): does it only work with pistol
+[13:12:43] [Chat][Talk] Koto (639-4914): you have to give more damage
+[13:12:44] [Chat][Talk] Koto (639-4914): no
+[13:12:55] [Chat][Talk] Ainsley (531-0550): I think im just missing your head
+[13:12:59] [Chat][Talk] Koto (639-4914): no
+[13:13:03] [Chat][Talk] Koto (639-4914): 
+[13:13:09] [Chat][Talk] Ainsley (531-0550): do you need to hit it twice
+[13:13:12] [Chat][Talk] Koto (639-4914): it has to get shot couple times
+[13:13:32] [Chat][Talk] Ainsley (531-0550): oh
+[13:13:45] [Chat][Talk] Ainsley (531-0550):  /e suicide
+[13:14:06] [Chat][Talk] Ainsley (531-0550): bruh
+[13:14:08] [Chat][Talk] Koto (639-4914):  /e eat nade
+[13:14:13] [Chat][Talk] Koto (639-4914): i should add that
+[13:14:22] [Chat][Talk] Ainsley (531-0550): that wiould be kind of funny
+[13:14:37] [Chat][Talk] Koto (639-4914): im now working on mission systems
+[13:14:38] [Chat][Talk] Ainsley (531-0550): you could make it so when you do it
+[13:14:41] [Chat][Talk] Ainsley (531-0550): the item dissapears
+[13:14:57] [Chat][Talk] Koto (639-4914): and your head explodes
+[13:14:58] [Chat][Talk] Ainsley (531-0550): then 4 seconds later your body does :explode()
+[13:15:33] [Chat][Talk] Koto (639-4914): 
+[13:15:42] [Chat][Talk] Koto (639-4914): look
+[13:15:50] [Chat][Talk] Koto (639-4914): 
+[13:16:08] [Chat][Talk] Koto (639-4914): haha
+[13:16:08] [Chat][Talk] Ainsley (531-0550): you just died and dropped it
+[13:16:14] [Chat][Talk] Koto (639-4914): i typed in /kill
+[13:16:15] [Chat][Talk] Koto (639-4914): lol
+[13:16:24] [Chat][Talk] Koto (639-4914): fooled
+[13:16:29] [Chat][Talk] Ainsley (531-0550): on my server i have a thing where you can just do /x
+[13:16:35] [Chat][Talk] Ainsley (531-0550): and it makes yoru body explode
+[13:16:41] [Chat][Talk] Koto (639-4914): why
+[13:16:45] [Chat][Talk] Ainsley (531-0550): why not
+[13:16:48] [Chat][Talk] Koto (639-4914): is this admin?
+[13:16:49] [Chat][Talk] Ainsley (531-0550): its just admins tho
+[13:16:53] [Chat][Talk] Koto (639-4914): oh
+[13:16:54] [Chat][Talk] Koto (639-4914): okay
+[13:17:05] [Chat][Talk] Ainsley (531-0550): i let everybody do it at one point
+[13:17:06] [Chat][Talk] Koto (639-4914): i could do emotes
+[13:17:10] [Chat][Talk] Koto (639-4914): but im too lazy
+[13:17:16] [Chat][Yell] Ainsley (531-0550): ity was funny for a little biut
+[13:19:15] [Chat][Yell] Ainsley (531-0550): lol
+[13:19:45] [Chat][Talk] Koto (639-4914): okey
+[13:19:48] [Chat][Talk] Koto (639-4914): i go now
+[13:19:52] [Chat][Yell] Ainsley (531-0550): rip
+[13:19:57] [Chat][Talk] Koto (639-4914): i m ending this coding session
+[13:19:58] [Chat][Talk] Koto (639-4914): 
+[13:20:09] [Chat][Talk] Koto (639-4914): goodbye
+[13:20:10] [Chat][Talk] Koto (639-4914): and
+[13:20:13] [Chat][Talk] Koto (639-4914): allahuakbar
+[13:20:21] [Exit] Koto (639-4914)
+[13:20:23] [Chat][Yell] Ainsley (531-0550): xd
+[13:20:25] [Chat][Yell] Ainsley (531-0550): 

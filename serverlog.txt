@@ -1,0 +1,5 @@
+Server log
+Koto(6394914) Joined
+Koto(6394914) Exited
+Koto(6394914) Joined
+Koto(6394914) Exited

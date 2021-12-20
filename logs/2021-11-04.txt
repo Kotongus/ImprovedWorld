@@ -1,0 +1,71 @@
+[12:44:09] [Join] Koto (639-4914) (76561198723295813) from 83.24.13.173
+[13:11:33] [Join] Koto (639-4914) (76561198723295813) from 83.24.13.173
+[13:22:52] [Join] Koto (639-4914) (76561198723295813) from 83.24.13.173
+[13:31:23] [Join] ViniCastilho (256-2869) (76561198241387318) from 189.127.141.128
+[13:32:05] [Chat][Talk] Koto (639-4914): vc?
+[13:32:11] [Chat][Talk] ViniCastilho (256-2869): can't right now
+[13:32:14] [Chat][Talk] Koto (639-4914): ok
+[13:32:18] [Chat][Talk] Koto (639-4914): so i added a commant
+[13:32:22] [Chat][Talk] Koto (639-4914): command*
+[13:32:26] [Chat][Talk] Koto (639-4914): ./ofset
+[13:32:29] [Chat][Talk] Koto (639-4914): yeah i know
+[13:32:32] [Chat][Talk] ViniCastilho (256-2869): 
+[13:32:35] [Chat][Talk] Koto (639-4914): it has a spelling error
+[13:32:37] [Chat][Talk] Koto (639-4914): but
+[13:32:38] [Chat][Talk] ViniCastilho (256-2869): 
+[13:32:42] [Chat][Talk] Koto (639-4914): its shorter
+[13:32:52] [Chat][Talk] ViniCastilho (256-2869): 
+[13:34:14] [Chat][Talk] ViniCastilho (256-2869): 
+[13:34:31] [Chat][Talk] Koto (639-4914): vini
+[13:34:34] [Chat][Talk] Koto (639-4914): get in a heli
+[13:34:37] [Chat][Talk] Koto (639-4914): and stay
+[13:34:43] [Chat][Talk] Koto (639-4914): i wanna see the cool offset
+[13:34:51] [Chat][Talk] Koto (639-4914): 
+[13:34:52] [Chat][Talk] Koto (639-4914): dont fly
+[13:35:00] [Chat][Talk] Koto (639-4914): just stay
+[13:35:08] [Chat][Talk] ViniCastilho (256-2869): Nice
+[13:35:12] [Chat][Talk] ViniCastilho (256-2869): 
+[13:35:46] [Chat][Talk] ViniCastilho (256-2869): Realquick
+[13:35:48] [Exit] ViniCastilho (256-2869)
+[13:36:15] [Join] ViniCastilho (256-2869) (76561198241387318) from 189.127.141.128
+[13:36:16] [Chat][Talk] Koto (639-4914): 
+[13:39:04] [Chat][Talk] Koto (639-4914): 
+[13:45:08] [Chat][Talk] Koto (639-4914): 
+[13:48:11] [Exit] Koto (639-4914)
+[14:01:34] [Join] ViniCastilho (256-2869) (76561198241387318) from 189.127.141.128
+[14:01:42] [Chat][Talk] ViniCastilho (256-2869): 
+[14:06:12] [Join] ViniCastilho (256-2869) (76561198241387318) from 189.127.141.128
+[14:10:49] [Chat][Talk] ViniCastilho (256-2869): 
+[14:11:11] [Chat][Talk] ViniCastilho (256-2869): 
+[14:12:42] [Join] Koto (639-4914) (76561198723295813) from 83.24.13.173
+[14:13:09] [Join] hot mama finder (319-5252) (76561198369186871) from 79.191.142.145
+[14:13:14] [Chat][Talk] ViniCastilho (256-2869): !!!
+[14:13:24] [Chat][Talk] ViniCastilho (256-2869): Testing out some stuff
+[14:14:51] [Chat][Talk] Koto (639-4914): 
+[14:14:56] [Chat][Talk] Koto (639-4914): 
+[14:15:04] [Chat][Talk] Koto (639-4914): 
+[14:17:24] [Chat][Talk] Koto (639-4914): sorry vinu
+[14:17:27] [Chat][Talk] ViniCastilho (256-2869): NP
+[14:17:30] [Chat][Talk] ViniCastilho (256-2869): Your friend?
+[14:17:33] [Chat][Talk] Koto (639-4914): yeah
+[14:17:40] [Chat][Talk] Koto (639-4914): hes the financier
+[14:18:02] [Chat][X] hot mama finder (319-5252): 
+[14:19:20] [Chat][X] hot mama finder (319-5252): 
+[14:19:20] [Chat][X] hot mama finder (319-5252): 
+[14:19:20] [Chat][X] hot mama finder (319-5252): 
+[14:19:21] [Chat][X] hot mama finder (319-5252): 
+[14:19:59] [Exit] hot mama finder (319-5252)
+[14:23:59] [Chat][Talk] Koto (639-4914): hi
+[14:24:02] [Chat][Talk] Koto (639-4914): what u doing
+[14:24:12] [Chat][Talk] Koto (639-4914): hi
+[14:24:15] [Chat][Talk] ViniCastilho (256-2869): Hye
+[14:24:18] [Chat][Talk] Koto (639-4914): what u doing
+[14:24:25] [Chat][Talk] ViniCastilho (256-2869): Noiseless weapons
+[14:24:28] [Chat][Talk] Koto (639-4914): ok
+[14:24:29] [Chat][Talk] ViniCastilho (256-2869): Or trying
+[14:24:34] [Chat][Talk] ViniCastilho (256-2869): And failling
+[14:24:37] [Chat][Talk] Koto (639-4914): do you do resetlua?
+[14:24:38] [Chat][Talk] ViniCastilho (256-2869): Failing''
+[14:24:43] [Chat][Talk] ViniCastilho (256-2869): I do reloadplugin
+[14:24:45] [Chat][Talk] ViniCastilho (256-2869): 
+[14:24:49] [Chat][Talk] Koto (639-4914): ok
